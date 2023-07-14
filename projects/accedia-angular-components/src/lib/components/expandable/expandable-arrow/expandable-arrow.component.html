@@ -1,0 +1,20 @@
+<div
+  (click)="triggerClick($event)"
+  class="expandable-arrow"
+  [ngStyle]="{
+    '-webkit-mask-size': size,
+    '-webkit-mask-image': 'url(' + arrowPath + ')',
+    width: size,
+    height: size,
+    background: arrowColor
+  }"
+  [@expandableArrow]="{
+    value: (wrapper && wrapper.isExpanded$ | async) || isExpanded ? 'expanded' : 'collapsed',
+    params: {
+      collapsedRotation,
+      expandedRotation,
+      getNumberSpeed,
+      direction: isClockwise ? '' : '-'
+    }
+  }"
+></div>

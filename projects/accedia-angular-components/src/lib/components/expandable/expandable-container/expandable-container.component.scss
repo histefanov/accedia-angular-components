@@ -1,0 +1,5 @@
+.ng-animating {
+  // This is the default Angular animation class that is added during an animation.
+  // Adding overflow hidden so contents are not displayed while animation is ongoing
+  overflow: hidden;
+}

@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
     "paths": {
       "accedia-angular-components": [
         "projects/accedia-angular-components/src/public-api"
