@@ -5,9 +5,14 @@
   "projects": {
     "accedia-angular-components": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/accedia-angular-components",
       "sourceRoot": "projects/accedia-angular-components/src",
-      "prefix": "lib",
+      "prefix": "acc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -28,10 +33,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/accedia-angular-components/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         },
         "storybook": {
@@ -40,7 +42,11 @@
             "configDir": "projects/accedia-angular-components/.storybook",
             "browserTarget": "accedia-angular-components:build",
             "compodoc": false,
-            "port": 6006
+            "port": 6006,
+            "styles": [
+              "projects/accedia-angular-components/src/assets/styles/styles.scss",
+              "projects/accedia-angular-components/src/assets/styles/breakpoints.scss"
+            ]
           }
         },
         "build-storybook": {
@@ -49,7 +55,11 @@
             "configDir": "projects/accedia-angular-components/.storybook",
             "browserTarget": "accedia-angular-components:build",
             "compodoc": false,
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "styles": [
+              "projects/accedia-angular-components/src/assets/styles/styles.scss",
+              "projects/accedia-angular-components/src/assets/styles/breakpoints.scss"
+            ]
           }
         }
       }

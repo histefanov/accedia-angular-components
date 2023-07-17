@@ -1,7 +1,12 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/accedia-angular-components",
+  "assets": [
+    "src/assets/styles/breakpoints.scss",
+    "src/assets/styles/styles.scss"
+  ],
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "styleIncludePaths": ["src/assets/styles"]
   }
 }

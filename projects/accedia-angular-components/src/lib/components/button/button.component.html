@@ -1,0 +1,8 @@
+<button
+  [ngClass]="['button', size, variant]"
+  [ngStyle]="getInputStyles()"
+  [disabled]="disabled"
+  (click)="this.click.emit()"
+>
+  <span *ngIf="title">{{ title }}</span>
+</button>
