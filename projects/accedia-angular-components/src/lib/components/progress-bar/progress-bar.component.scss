@@ -1,0 +1,48 @@
+$height: 2rem;
+
+:host {
+  display: block;
+
+  max-width: 200px;
+}
+
+.progress-bar-base {
+  border-radius: 0.5rem;
+  height: $height;
+}
+
+.progress-bar-container {
+  @extend .progress-bar-base;
+  background-color: red;
+
+  &.orange {
+    background-color: green
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+}
+
+.progress-bar {
+  @extend .progress-bar-base;
+  color: var(--main-white-color);
+  background-color: blue;
+
+  &.primary-orange {
+    background-color: green
+  }
+}
+
+.text-container {
+  $padding: 0.75rem;
+  padding-left: $padding;
+  padding-right: $padding;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  min-height: $height;
+  color: white;
+}

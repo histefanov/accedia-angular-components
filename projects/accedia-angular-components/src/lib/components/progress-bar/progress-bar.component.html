@@ -1,0 +1,10 @@
+<div [ngClass]="[secondaryColor]" class="progress-bar-container">
+  <div [ngClass]="['progress-bar', primaryColor]" [style]="{ width: progressCounter + '%' }">
+    <div class="text-container">
+      <div>
+        <ng-content></ng-content>
+      </div>
+      <span> {{ progress.toFixed(0) }}% </span>
+    </div>
+  </div>
+</div>
