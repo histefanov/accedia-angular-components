@@ -43,6 +43,9 @@
             "browserTarget": "accedia-angular-components:build",
             "compodoc": false,
             "port": 6006,
+            "assets": [
+              "projects/accedia-angular-components/src/assets/images"
+            ],
             "styles": [
               "projects/accedia-angular-components/src/assets/styles/styles.scss",
               "projects/accedia-angular-components/src/assets/styles/breakpoints.scss"

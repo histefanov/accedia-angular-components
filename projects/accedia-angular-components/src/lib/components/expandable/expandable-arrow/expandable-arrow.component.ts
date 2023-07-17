@@ -53,7 +53,7 @@ export class ExpandableArrowComponent implements OnInit, OnDestroy {
 
   private subs = new Subscription();
   private _animationSpeed: AnimationSpeed;
-  public arrowPath = '/static/media/projects/accedia-angular-components/src/stories/assets/nextArrow.svg';
+  public arrowPath = '../../../../assets/images/nextArrow.svg';
 
   public get getNumberSpeed() {
     return this._animationSpeed;
