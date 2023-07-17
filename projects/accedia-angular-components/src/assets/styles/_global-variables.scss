@@ -1,0 +1,25 @@
+:root {
+  // color palette
+  --primary-color-red: #cc1f17;
+  --primary-color-red-dark: #a60000;
+  --primary-color-white: #ffffff;
+  --primary-color-black: #000000;
+  --neutral-color-grey: #888888;
+  --neutral-color-grey-light: #dcdcdc;
+
+  // fonts
+  --standard-font-family-open-sans: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
+  --standard-font-family-open-sans-bold: 'Open Sans Bold', 'Segoe UI Bold', 'Tahoma Bold', sans-serif;
+  --standard-font-size-12: 12px;
+  --standard-font-size-14: 14px;
+  --standard-font-size-16: 16px;
+  --standard-font-size-18: 18px;
+  --standard-font-size-20: 20px;
+  --standard-font-size-24: 24px;
+  --standard-font-size-28: 28px;
+  --standard-font-size-32: 32px;
+
+  // animations
+  --standard-transition-duration-100: 100ms;
+  --standard-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

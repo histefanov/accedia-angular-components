@@ -1,51 +1,76 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import Button from './button.component';
+import { ButtonComponent } from '../lib/components/button/button.component';
 
-// More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
-const meta: Meta<Button> = {
-  title: 'Example/Button',
-  component: Button,
+const meta: Meta<ButtonComponent> = {
+  title: 'Components/Button',
+  component: ButtonComponent,
   tags: ['autodocs'],
-  render: (args: Button) => ({
+  render: (args: ButtonComponent) => ({
     props: {
-      backgroundColor: null,
       ...args,
     },
   }),
   argTypes: {
-    backgroundColor: {
-      control: 'color',
+    title: {
+      name: 'title?',
+      description: 'Text content of the button'
     },
+    variant: {
+      description: 'General appearance',
+      control: 'inline-radio',
+      options: ['filled', 'outlined'],
+      table: {
+        defaultValue:  { 
+          summary: 'filled' 
+        }
+      }
+    },
+    size: {
+      description: 'Size of the element',
+      control: 'inline-radio',
+      options: ['small', 'medium', 'large'],
+      table: {
+        defaultValue: { 
+          summary: 'medium' 
+        }
+      }
+    },
+    disabled: {
+      description: 'Disabled state',
+      control: 'boolean',
+      table: {
+        defaultValue: { 
+          summary: false 
+        }
+      }
+    },
+    backgroundColor: {
+      name: 'backgroundColor?',
+      description: 'Background color. Gets applied to the border and title color when `variant` is `outlined`',
+      control: 'color'
+    }
   },
 };
 
 export default meta;
-type Story = StoryObj<Button>;
+type Story = StoryObj<ButtonComponent>;
 
-// More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
-export const Primary: Story = {
+export const Filled: Story = {
   args: {
-    primary: true,
-    label: 'Button',
-  },
+    title: 'Filled',
+    variant: 'filled',
+    size: 'medium',
+    disabled: false,
+    backgroundColor: undefined
+  }
 };
 
-export const Secondary: Story = {
+export const Outlined: Story = {
   args: {
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
+    title: 'Outlined',
+    variant: 'outlined',
+    size: 'medium',
+    disabled: false,
+    backgroundColor: undefined
+  }
 };
