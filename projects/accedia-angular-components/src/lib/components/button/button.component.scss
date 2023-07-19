@@ -1,9 +1,11 @@
+@import '../../../assets/styles/breakpoints.scss';
+
 .button {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 10px 8px;
+  padding: 10px 16px;
   border-radius: 30px;
   border: 1px solid var(--primary-color-red);
   background-color: var(--primary-color-red);
@@ -33,19 +35,30 @@
   }
 
   &.small {
-    width: 6rem;
+    min-width: 6rem;
     height: 2rem;
   }
 
   &.medium {
-    width: 8.875rem;
+    min-width: 8.875rem;
     height: 2.6rem;
+
+    @include media(mobile-screen) {
+      min-width: 7rem;
+      height: 2rem;
+    }
   }
 
   &.large {
-    width: 12rem;
+    min-width: 12rem;
     height: 3rem;
     font-size: var(--standard-font-size-16);
+
+    @include media(mobile-screen) {
+      min-width: 8.875rem;
+      height: 2rem;
+      font-size: var(--standard-font-size-14);
+    }
   }
 }
 

@@ -4,8 +4,10 @@
   --primary-color-red-dark: #a60000;
   --primary-color-white: #ffffff;
   --primary-color-black: #000000;
+  --neutral-color-grey-dark: #7e7e7e;
   --neutral-color-grey: #888888;
   --neutral-color-grey-light: #dcdcdc;
+  --box-shadow-color-black: #00000029;
 
   // fonts
   --standard-font-family-open-sans: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
@@ -22,4 +24,10 @@
   // animations
   --standard-transition-duration-100: 100ms;
   --standard-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // border-radius
+  --standard-border-radius-small: 5px;
+
+  // box-shadows
+  --standard-box-shadow-small: 0 1px 4px var(--box-shadow-color-black);
 }

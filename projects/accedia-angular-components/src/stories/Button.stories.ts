@@ -16,6 +16,7 @@ const meta: Meta<ButtonComponent> = {
       description: 'Text content of the button'
     },
     variant: {
+      name: 'variant?',
       description: 'General appearance',
       control: 'inline-radio',
       options: ['filled', 'outlined'],
@@ -26,6 +27,7 @@ const meta: Meta<ButtonComponent> = {
       }
     },
     size: {
+      name: 'size?',
       description: 'Size of the element',
       control: 'inline-radio',
       options: ['small', 'medium', 'large'],
@@ -36,6 +38,7 @@ const meta: Meta<ButtonComponent> = {
       }
     },
     disabled: {
+      name: 'disabled?',
       description: 'Disabled state',
       control: 'boolean',
       table: {
