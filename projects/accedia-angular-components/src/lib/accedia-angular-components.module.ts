@@ -8,12 +8,19 @@ import { ExpandableContainerComponent } from './components/expandable/expandable
 import { ExpandableWrapperComponent } from './components/expandable/afc-expandable-wrapper/expandable-wrapper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { InputComponent } from './components/input/input.component';
+import { FormsModule } from '@angular/forms';
+import { LabelComponent } from './components/label/label.component';
+import { ValidationErrorComponent } from './components/validation-error/validation-error.component';
 
 
 @NgModule({
   declarations: [
     AccediaAngularComponentsComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent,
+    LabelComponent,
+    ValidationErrorComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -23,12 +30,17 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule
   ],
   exports: [
     ProgressBarComponent,
     ExpandableArrowComponent,
     ExpandableContainerComponent,
-    ExpandableWrapperComponent
+    ExpandableWrapperComponent,
+    ButtonComponent,
+    InputComponent,
+    LabelComponent,
+    ValidationErrorComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

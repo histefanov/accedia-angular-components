@@ -9,3 +9,17 @@
     @content;
   }
 }
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == mobile-screen) {
+      @include mobile-screen {
+        @content;
+      }
+    } @else if ($key == tablet-screen) {
+      @include tablet-screen {
+        @content;
+      }
+    }
+  }
+}
