@@ -21,13 +21,13 @@ let nextUniqueId = 0;
   selector: 'acc-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  // providers: [
-  //   {
-  //     provide: NG_VALUE_ACCESSOR,
-  //     useExisting: forwardRef(() => InputComponent),
-  //     multi: true,
-  //   },
-  // ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
 export class InputComponent implements AfterViewInit {
   public control: FormControl;

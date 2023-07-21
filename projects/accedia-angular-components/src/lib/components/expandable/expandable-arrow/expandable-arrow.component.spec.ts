@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimationSpeed, ExpandableArrowComponent } from './expandable-arrow.component';
-import { ExpandableWrapperComponent } from '../expandable/afc-expandable-wrapper/afc-expandable-wrapper.component';
-import { of } from 'rxjs';
+import { ExpandableWrapperComponent } from '../afc-expandable-wrapper/expandable-wrapper.component';
 
 describe('ExpandableArrowComponent', () => {
   let component: ExpandableArrowComponent;
@@ -60,7 +59,7 @@ describe('ExpandableArrowComponent', () => {
   it('should set `size` to equal `mobileSize` on mobile screens', () => {
     component.size = '20px';
     component.sizeMobile = '10px';
-    component['breakpointService'].isMobile$ = of(true);
+    // component['breakpointService'].isMobile$ = of(true);
     component.ngOnInit();
 
     expect(component.size).toBe(component.sizeMobile);

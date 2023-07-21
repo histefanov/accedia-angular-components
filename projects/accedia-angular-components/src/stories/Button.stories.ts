@@ -4,7 +4,6 @@ import { ButtonComponent } from '../lib/components/button/button.component';
 const meta: Meta<ButtonComponent> = {
   title: 'Components/Button',
   component: ButtonComponent,
-  tags: ['autodocs'],
   render: (args: ButtonComponent) => ({
     props: {
       ...args,
@@ -47,8 +46,8 @@ const meta: Meta<ButtonComponent> = {
         }
       }
     },
-    backgroundColor: {
-      name: 'backgroundColor?',
+    color: {
+      name: 'color?',
       description: 'Background color. Gets applied to the border and title color when `variant` is `outlined`',
       control: 'color'
     }
@@ -64,7 +63,7 @@ export const Filled: Story = {
     variant: 'filled',
     size: 'medium',
     disabled: false,
-    backgroundColor: undefined
+    color: undefined
   }
 };
 
@@ -74,6 +73,6 @@ export const Outlined: Story = {
     variant: 'outlined',
     size: 'medium',
     disabled: false,
-    backgroundColor: undefined
+    color: undefined
   }
 };

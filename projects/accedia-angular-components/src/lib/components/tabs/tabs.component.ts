@@ -13,6 +13,7 @@ import {
 } from '@angular/core';
 import { TabComponent } from '../tab/tab.component';
 import { Subscription, debounceTime, fromEvent } from 'rxjs';
+import { InlineStyle } from '../../common/types';
 
 @Component({
   selector: 'acc-tabs',
