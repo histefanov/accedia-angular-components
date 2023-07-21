@@ -3,7 +3,7 @@ import { ExpandableWrapperComponent } from '../afc-expandable-wrapper/expandable
 import { expandableContainer } from '../../../common/animation.constants';
 
 @Component({
-  selector: 'afc-expandable-container',
+  selector: 'acc-expandable-container',
   templateUrl: './expandable-container.component.html',
   styleUrls: ['./expandable-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

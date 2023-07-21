@@ -16,14 +16,14 @@ export enum AnimationSpeed {
 }
 
 @Component({
-  selector: 'afc-expandable-arrow',
+  selector: 'acc-expandable-arrow',
   templateUrl: './expandable-arrow.component.html',
   styleUrls: ['./expandable-arrow.component.scss'],
   animations: [expandableArrow]
 })
 export class ExpandableArrowComponent implements OnInit, OnDestroy {
   _startPosition: any = 'right';
-  _endPosition: any = 'right';
+  _endPosition: any = 'bottom';
   public get startPosition() {
     return this._startPosition;
   }
@@ -45,11 +45,11 @@ export class ExpandableArrowComponent implements OnInit, OnDestroy {
     this._animationSpeed = AnimationSpeed[animationSpeed || 'normal'];
   }
   @Input() isExpanded: boolean;
-  @Input() size: string = '24px';
-  @Input() sizeMobile: string = '24px';
+  @Input() size: string = '48px';
+  @Input() sizeMobile: string = '48px';
   @Input() arrowColor: string;
   @Input() isClockwise = true;
-  @Input() triggerArrowClick = false;
+  @Input() triggerArrowClick = true;
 
   private subs = new Subscription();
   private _animationSpeed: AnimationSpeed;

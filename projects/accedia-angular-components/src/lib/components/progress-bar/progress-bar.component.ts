@@ -41,9 +41,7 @@ export class ProgressBarComponent {
   public get progress() {
     return this._progress;
   }
-
-  @Input() primaryColor: 'primary-green' | 'primary-orange' = 'primary-green';
-  @Input() secondaryColor: 'orange' | 'transparent' | 'grey' = 'grey';
+  @Input() secondaryColor = 'grey';
 
   public ngAfterViewInit(): void {
 

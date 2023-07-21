@@ -1,0 +1,19 @@
+<div class="wrapper">
+<div #dateContainer class="date-container" (click)="toggleCalendar()">
+  <div class="label-container">
+    <span class="date-container__label">{{ label }}<span *ngIf="withAsterisk" class="asterisk">*</span></span>
+    <span class="date-container__date">{{ value | date:'shortDate' }}</span>
+  </div>
+  <img src="../../../assets/images/calendar.svg">
+</div>
+
+<div class="calendar-wrapper" [ngClass]="isCalendarOpen ? 'open' : ''">
+  <div
+    *ngIf="isCalendarOpen"
+    class="calendar-container"
+    [ngStyle]="{ width: windowWidth - 32 + 'px', left: swapOpenDirection ? offsetCalendarOpenPosition : 0 }"
+  >
+    <mat-calendar *ngIf="isCalendarOpen" [startAt]="value" [(selected)]="value"></mat-calendar>
+  </div>
+</div>
+</div>

@@ -39,4 +39,5 @@ export const Primary: Story = {
         withProgressAnimation: true,
         animationDelayMs: 50
     },
+
 };
