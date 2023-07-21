@@ -1,0 +1,19 @@
+<nav class="tabs-nav">
+  <ul class="nav-list">
+    <li
+      #tab
+      *ngFor="let tab of tabs; let i = index"
+      class="nav-item"
+      [class.active]="tab.isActive"
+    >
+      <button class="nav-button" (click)="activateTab(tab, i)">
+        {{ tab.label }}
+      </button>
+    </li>
+    <span #slider class="slider" [ngStyle]="getSliderColor()"></span>
+  </ul>
+  <div class="nav-side-content">
+    <ng-container [ngTemplateOutlet]="activeTab.navSideContent"></ng-container>
+  </div>
+</nav>
+<ng-content></ng-content>

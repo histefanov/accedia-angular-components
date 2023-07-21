@@ -9,7 +9,7 @@ import { SIZE_LARGE, SIZE_MEDIUM, SIZE_SMALL, VARIANT_FILLED, VARIANT_OUTLINED }
 export class ButtonComponent {
   @Input() backgroundColor?: string;
   @Input() disabled: boolean = false;
-  @Input() size: typeof SIZE_SMALL | typeof SIZE_MEDIUM | typeof SIZE_LARGE = SIZE_LARGE;
+  @Input() size: typeof SIZE_SMALL | typeof SIZE_MEDIUM | typeof SIZE_LARGE = SIZE_MEDIUM;
   @Input() title?: string;
   @Input() variant: typeof VARIANT_FILLED | typeof VARIANT_OUTLINED = VARIANT_FILLED;
   @Output() click = new EventEmitter();
