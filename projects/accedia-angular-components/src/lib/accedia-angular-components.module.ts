@@ -16,6 +16,8 @@ import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
 import { LabelComponent } from './components/label/label.component';
 import { ValidationErrorComponent } from './components/validation-error/validation-error.component';
+import { TabComponent } from './components/tab/tab.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { ValidationErrorComponent } from './components/validation-error/validati
     ModalComponent,
     InputComponent,
     LabelComponent,
-    ValidationErrorComponent
+    ValidationErrorComponent,
+    TabComponent,
+    TabsComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -54,7 +58,9 @@ import { ValidationErrorComponent } from './components/validation-error/validati
     ButtonComponent,
     InputComponent,
     LabelComponent,
-    ValidationErrorComponent
+    ValidationErrorComponent,
+    TabComponent,
+    TabsComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

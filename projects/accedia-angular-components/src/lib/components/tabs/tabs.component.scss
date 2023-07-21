@@ -1,0 +1,108 @@
+@import '../../../assets/styles/breakpoints.scss';
+
+:host {
+  width: 100%;
+  font-family: var(--standard-font-family-open-sans);
+}
+
+$button-width: 75%;
+
+.tabs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--neutral-color-grey-light);
+
+  @include media(mobile-screen) {
+    flex-direction: column;
+    margin-bottom: 0.625rem;
+    border: none;
+  }
+}
+
+.nav-list {
+  display: flex;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  .slider {
+    position: absolute;
+    bottom: -1px;
+    border-top: 2px solid var(--primary-color-red);
+    transition-property: left, width;
+    transition-duration: var(--standard-transition-duration-250);
+    transition-timing-function: var(--standard-transition-timing-function);
+  }
+
+  @include media(mobile-screen) {
+    .slider {
+      bottom: 0;
+      border-width: 1px;
+    }
+
+    .nav-item {
+      border-bottom: 1px solid var(--neutral-color-grey-light);
+    }
+
+    .nav-item .nav-button {
+      padding-inline: 1.25rem;
+    }
+  }
+}
+
+.nav-item {
+  $label-spacing: 1.75rem;
+  position: relative;
+
+  &:first-child .nav-button {
+    padding-right: $label-spacing;
+  }
+
+  &:not(:first-child) .nav-button {
+    padding-inline: $label-spacing;
+  }
+}
+
+.nav-item.active {
+  .nav-button {
+    text-shadow: 0px 0px 0.5px var(--primary-color-black);
+  }
+}
+
+.nav-button {
+  display: block;
+  background: none;
+  border: none;
+  height: 100%;
+  padding: 1.25rem 0;
+  font-family: var(--standard-font-family-open-sans);
+  font-size: 1rem;
+  color: var(--secondary-space-color);
+  cursor: pointer;
+
+  @include media(mobile-screen) {
+    padding-block: 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+.nav-side-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  min-width: 100%-$button-width;
+
+  @include media(mobile-screen) {
+    align-self: flex-end;
+    padding-top: 1.125rem;
+    max-width: 300px;
+    min-width: auto;
+  }
+
+  @include media(tablet-screen) {
+    max-width: 300px;
+  }
+}
