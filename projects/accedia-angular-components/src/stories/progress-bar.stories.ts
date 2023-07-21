@@ -16,9 +16,10 @@ const meta: Meta<ProgressBarComponent> = {
                 ...props,
             },
             template: `
-        <afc-progress-bar [progress]="progress" [animationDelayMs]="animationDelayMs" [withProgressAnimation]="withProgressAnimation">
+        <afc-progress-bar [progress]="progress" [minimumProgressAnimation]="minimumProgressAnimation" [animationDelayMs]="animationDelayMs" [withProgressAnimation]="withProgressAnimation">
           ${label ? label : ''}
         </afc-progress-bar>
+        progress: {{progress}}%
       `
         }
     },
@@ -37,7 +38,8 @@ export const Primary: Story = {
         progress: 50,
         label: 'Label',
         withProgressAnimation: true,
-        animationDelayMs: 50
+        animationDelayMs: 50,
+        minimumProgressAnimation: 30
     },
 
 };

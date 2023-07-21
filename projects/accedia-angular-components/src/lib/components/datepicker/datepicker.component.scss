@@ -56,7 +56,6 @@
   list-style: none;
   box-shadow: 0px 5px 8px #00000029;
   position: absolute;
-  max-width: 320px;
   left: 0;
   top: 10px;
   padding: 0;
@@ -82,10 +81,6 @@
     display: flex;
     gap: 0.4rem;
   }
-}
-
-.wrapper {
-  height: 450px;
 }
 
 

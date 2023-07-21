@@ -12,7 +12,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgControl } from 
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'afc-datepicker',
+  selector: 'acc-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   providers: [
@@ -24,13 +24,30 @@ import { Subscription } from 'rxjs';
   ]
 })
 export class DatepickerComponent implements ControlValueAccessor {
+  public _swapOpenDirection = false;
   @Input() label: string = 'From: ';
   @Input() isDisabled: boolean = false;
   @Input() withAsterisk: boolean = false;
-  @Input() swapOpenDirection: boolean;
+
+
+  @Input() set swapOpenDirection(val: boolean) {
+    console.log(val)
+    if (val) {
+      this._swapOpenDirection = true;
+      this.offsetCalendarOpenPosition = -(this.calendarWidth - this.dateWidth) + 'px';
+    } else {
+      this._swapOpenDirection = false;
+      this.offsetCalendarOpenPosition = (this.calendarWidth - this.dateWidth) + 'px';
+    }
+  }
+  public get swapOpenDirection() {
+    return this._swapOpenDirection;
+  }
   @Input() minDate: Date;
   @Input() maxDate: Date;
   @Input() isInModal: boolean = true;
+  @Input() calendarWidth: number = 320;
+  @Input() dateWidth: number = 200;
   public control: FormControl;
   public subs = new Subscription();
   public isCalendarOpen = false;
@@ -38,6 +55,7 @@ export class DatepickerComponent implements ControlValueAccessor {
   public windowWidth: number;
   public paddingSizes: 32;
   public offsetCalendarOpenPosition: string;
+
 
   @ViewChild('dateContainer') dateContainer: ElementRef;
 
@@ -67,7 +85,6 @@ export class DatepickerComponent implements ControlValueAccessor {
     }
     if (!this.isDisabled) {
       this.isCalendarOpen = !this.isCalendarOpen;
-      console.log('wtf')
     }
   }
 
@@ -83,9 +100,9 @@ export class DatepickerComponent implements ControlValueAccessor {
   ngAfterViewInit(): void {
     this.windowWidth = window.innerWidth;
 
-    if (this.swapOpenDirection) {
-      this.offsetCalendarOpenPosition = -this.dateContainer.nativeElement.offsetWidth + 'px';
-    }
+    // if (this.swapOpenDirection) {
+    //   this.offsetCalendarOpenPosition = -(this.calendarWidth - this.dateWidth) + 'px';
+    // }
   }
 
   private propagateChange: Function = (_: string) => { };
