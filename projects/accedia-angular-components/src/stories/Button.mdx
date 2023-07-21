@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories.ts";
+import GithubIcon from "./assets/github-mark.svg";
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Button
+
+The <strong>Button</strong> component an interactive and customizable wrapper over the native `<button>` element.
+
+<Meta of={ButtonStories} />
+
+<Canvas of={ButtonStories.Filled} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li>
+    It supports various button sizes, including small, medium (default), and
+    large, catering to different design requirements.
+  </li>
+  <li>
+    You can choose between filled and outlined button variants to match your
+    application's style.
+  </li>
+  <li>
+    The component allows you to customize the button's background color and
+    easily disable it when needed.
+  </li>
+  <li>Button clicks can be easily handled through the click EventEmitter.</li>
+</ul>
+
+
+## Usage
+
+Use the `acc-button` selector and pass in your desired configuration through the component's input properties.
+Set the title attribute to provide the button's text content. Optionally, specify the `size` and `variant` attributes
+to adjust the button's appearance. If you would like to customize the component to match your application's color theme,
+you can take advantage of the `color` attribute. The provided color will be applied to either the background or the border
+of the button, depending on the specified variant. Handle button clicks by listening to the `click` event and calling 
+the corresponding function.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Button component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/button)

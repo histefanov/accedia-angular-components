@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SIZE_LARGE, SIZE_MEDIUM, SIZE_SMALL, VARIANT_FILLED, VARIANT_OUTLINED } from '../../common/constants';
+import { InlineStyle } from '../../common/types';
 
 @Component({
   selector: 'acc-button',
@@ -7,7 +8,7 @@ import { SIZE_LARGE, SIZE_MEDIUM, SIZE_SMALL, VARIANT_FILLED, VARIANT_OUTLINED }
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() backgroundColor?: string;
+  @Input() color?: string;
   @Input() disabled: boolean = false;
   @Input() size: typeof SIZE_SMALL | typeof SIZE_MEDIUM | typeof SIZE_LARGE = SIZE_MEDIUM;
   @Input() title?: string;
@@ -17,13 +18,13 @@ export class ButtonComponent {
   getInputStyles(): InlineStyle {
     let style: InlineStyle = {};
 
-    if (this.backgroundColor && !this.disabled) {
-      style['border-color'] = this.backgroundColor;
+    if (this.color && !this.disabled) {
+      style['border-color'] = this.color;
 
       if (this.variant === VARIANT_FILLED) {
-        style['background-color'] = this.backgroundColor;
+        style['background-color'] = this.color;
       } else {
-        style['color'] = this.backgroundColor;
+        style['color'] = this.color;
       }
     }
     
