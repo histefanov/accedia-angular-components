@@ -11,9 +11,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AdditionalInfoComponent } from './components/additional-info/additional-info.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { ModalComponent } from './components/modal/modal.component';
+import { InputComponent } from './components/input/input.component';
+import { FormsModule } from '@angular/forms';
+import { LabelComponent } from './components/label/label.component';
+import { ValidationErrorComponent } from './components/validation-error/validation-error.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { ModalComponent } from './components/modal/modal.component';
     ExpandableWrapperComponent,
     AdditionalInfoComponent,
     DatepickerComponent,
-    ModalComponent
+    ModalComponent,
+    InputComponent,
+    LabelComponent,
+    ValidationErrorComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -37,6 +43,7 @@ import { ModalComponent } from './components/modal/modal.component';
     AdditionalInfoComponent,
     BrowserAnimationsModule,
     MatNativeDateModule,
+    FormsModule
   ],
   exports: [
     ProgressBarComponent,
@@ -44,7 +51,10 @@ import { ModalComponent } from './components/modal/modal.component';
     ExpandableContainerComponent,
     ExpandableWrapperComponent,
     AdditionalInfoComponent,
-    ButtonComponent
+    ButtonComponent,
+    InputComponent,
+    LabelComponent,
+    ValidationErrorComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

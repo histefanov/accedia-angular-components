@@ -1,0 +1,23 @@
+<!-- TODO: Finish when creating a story with form context -->
+<div class="field-container">
+  <acc-label [formElementId]="id" [withAsterisk]="withAsterisk">
+    {{ label }}
+  </acc-label>
+  <input
+    class="input"
+    [class.invalid]="isInvalid()"
+    [id]="id"
+    [type]="type"
+    [step]="numberStep"
+    size="10"
+    [maxLength]="maxLength"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (blur)="onBlur()"
+  />
+  <acc-validation-error [control]="control"></acc-validation-error>
+  <!-- <div *ngIf="isInvalid()" class="error-container">
+    <img src="../../../assets/icons/warning.svg" />
+  </div> -->
+</div>
