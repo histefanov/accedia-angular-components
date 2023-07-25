@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
 import { By } from '@angular/platform-browser';
+import { LabelComponent } from '../label/label.component';
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -9,7 +10,7 @@ describe('ButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
+      declarations: [ ButtonComponent, LabelComponent ]
     })
     .compileComponents();
 
@@ -57,48 +58,48 @@ describe('ButtonComponent', () => {
   });
 
   describe('#getInputStyles', () => {
-    it('should return null when #backgroundColor is undefined', () => {
+    it('should return an empty object when #color is undefined', () => {
       const result = component.getInputStyles();
 
-      expect(result).toBeNull();
+      expect(result).toEqual({});
     });
 
-    it('should return null when #disabled is true', () => {
+    it('should return an empty object when #disabled is true', () => {
       component.disabled = true;
       fixture.detectChanges();
 
       const result = component.getInputStyles();
 
-      expect(result).toBeNull();
+      expect(result).toEqual({});
     });
 
     it('should return correct styles object when #variant is filled', () => {
-      const sampleBackgroundColor = '#b6b6b6'; 
+      const sampleColor = '#b6b6b6'; 
 
       component.variant = 'filled';
-      component.backgroundColor = sampleBackgroundColor;
+      component.color = sampleColor;
       fixture.detectChanges();
 
       const result = component.getInputStyles();
 
       expect(result).toEqual({
-        'background-color': sampleBackgroundColor,
-        'border-color': sampleBackgroundColor
+        'background-color': sampleColor,
+        'border-color': sampleColor
       });
     });
 
     it('should return correct styles object when #variant is outlined', () => {
-      const sampleBackgroundColor = '#b6b6b6'; 
+      const sampleColor = '#b6b6b6'; 
 
       component.variant = 'outlined';
-      component.backgroundColor = sampleBackgroundColor;
+      component.color = sampleColor;
       fixture.detectChanges();
 
       const result = component.getInputStyles();
 
       expect(result).toEqual({
-        'border-color': sampleBackgroundColor,
-        'color': sampleBackgroundColor
+        'border-color': sampleColor,
+        'color': sampleColor
       });
     });
   })
