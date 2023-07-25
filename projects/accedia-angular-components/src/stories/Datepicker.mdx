@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as DatepickerStories from "./Datepicker.stories.ts";
+import GithubIcon from "./assets/github-mark.svg";
+
+<Meta of={DatepickerStories} />
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Datepicker
+
+The <strong>Datepicker</strong> component allows a simple way for you to select dates by wrapping the material calendar. This way you can customize
+how your closed calendar view looks. The datepicker also uses ControlValueAccessor so you can use it in angular forms natively.
+
+<Canvas of={DatepickerStories.Primary} />
+
+<Controls />
+
+{/* ## Functionality: */}
+
+
+## Usage
+
+"Show code" has an example how to use it in Angular Forms.
+
+{/* ## Additional notes */}
+
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Datepicker component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/datepicker)<br />

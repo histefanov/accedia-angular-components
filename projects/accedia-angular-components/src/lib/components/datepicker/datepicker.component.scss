@@ -1,0 +1,99 @@
+@import '../../../assets/styles/breakpoints.scss';
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+:host {
+  font-size: 0.875rem;
+  color: black;
+  width: 100%;
+  max-width: 178px;
+
+  @include media(mobile-screen) {
+    font-size: 0.75rem;
+    max-width: 164px;
+    width: 100%;
+  }
+}
+
+.date-container {
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid var(--primary-color-red);
+  box-sizing: border-box;
+  display: flex;
+  padding: 10px 0.7rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  width: 200px;
+
+  &__label {
+  }
+
+  &__date {
+    margin-right: 4px;
+    white-space: nowrap;
+  }
+
+  @include media(mobile-screen) {
+    padding: 8px 0.6rem;
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
+
+.calendar-wrapper {
+  position: relative;
+  @include media(mobile-screen) {
+    position: inherit; // gets the parent relative position from the date-form container;
+    min-width: 100%;
+  }
+}
+
+.calendar-container {
+  display: block;
+  background: white;
+  list-style: none;
+  box-shadow: 0px 5px 8px #00000029;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  padding: 0;
+  z-index: 12220;
+  right: 0;
+  margin: 0;
+
+  @include media(mobile-screen) {
+    max-width: 500px;
+    top: 50px;
+  }
+}
+
+.asterisk {
+  color: var(--primary-orange-mobile-color);
+}
+
+.label-container {
+  display: flex;
+  gap: 0.5rem;
+  @include media(mobile-screen) {
+    width: 100%;
+    display: flex;
+    gap: 0.4rem;
+  }
+}
+
+
+::ng-deep.mat-calendar-body-selected {
+  background-color: var(--primary-color-red) !important;
+  color: #fff !important;
+}
+
+::ng-deep.mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: rgba(17, 17, 86, 0.8) !important;
+  background-color: none !important;
+}
+
+::ng-deep th {
+  font-size: 14px;
+}

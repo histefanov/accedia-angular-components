@@ -8,10 +8,10 @@ import { Subscription, interval, take } from 'rxjs';
 })
 export class ProgressBarComponent {
   constructor(private cdr: ChangeDetectorRef) { }
-  public progressBarTreshold = 30;
+  @Input() minimumProgressAnimation = 55;
   public progressCounter = 0;
   @Input() animationDelayMs = 25;
-  public minimumProgressAnimation = 30;
+  public minimumProgress: number;
   @Input() withProgressAnimation = true;
   public subscription = new Subscription();
   _progress: number;
@@ -22,14 +22,14 @@ export class ProgressBarComponent {
     }
     this.progressCounter = 0;
     this._progress = value;
-    this.minimumProgressAnimation = this.progress < this.progressBarTreshold ? this.progressBarTreshold : this.progress;
+    this.minimumProgress = this.progress < this.minimumProgressAnimation ? this.minimumProgressAnimation : this.progress;
     interval(this.animationDelayMs)
-      .pipe(take(this.minimumProgressAnimation || 100))
+      .pipe(take(this.minimumProgress || 100))
       .subscribe(() => {
         if (!this.withProgressAnimation) {
           this.progressCounter = this.progress;
         } else {
-          if (this.progressCounter < this.minimumProgressAnimation) {
+          if (this.progressCounter < this.minimumProgress) {
 
             this.progressCounter++;
           }
@@ -41,9 +41,7 @@ export class ProgressBarComponent {
   public get progress() {
     return this._progress;
   }
-
-  @Input() primaryColor: 'primary-green' | 'primary-orange' = 'primary-green';
-  @Input() secondaryColor: 'orange' | 'transparent' | 'grey' = 'grey';
+  @Input() secondaryColor = 'grey';
 
   public ngAfterViewInit(): void {
 

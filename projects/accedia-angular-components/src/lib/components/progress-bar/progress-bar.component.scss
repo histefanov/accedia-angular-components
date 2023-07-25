@@ -2,7 +2,6 @@ $height: 2rem;
 
 :host {
   display: block;
-
   max-width: 200px;
 }
 
@@ -13,25 +12,13 @@ $height: 2rem;
 
 .progress-bar-container {
   @extend .progress-bar-base;
-  background-color: red;
-
-  &.orange {
-    background-color: green
-  }
-
-  &.transparent {
-    background-color: transparent;
-  }
+  background-color: var(--primary-color-red);
 }
 
 .progress-bar {
   @extend .progress-bar-base;
   color: var(--main-white-color);
-  background-color: blue;
-
-  &.primary-orange {
-    background-color: green
-  }
+  background-color: var(--neutral-color-grey);
 }
 
 .text-container {
