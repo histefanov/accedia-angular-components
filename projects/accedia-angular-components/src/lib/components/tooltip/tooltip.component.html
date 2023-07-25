@@ -1,0 +1,13 @@
+<div
+  *ngIf="showContent && additionalShowCondition"
+  [ngStyle]="{
+    top: top,
+    zIndex: zIndex
+  }"
+  [ngClass]="['tooltip__text__box', position, autoSize ? 'autoSize' : '']"
+>
+  <div class="tooltip__text" [ngStyle]="{
+    width: tooltipWidth + 'px',
+  }">{{ text }}</div>
+</div>
+<ng-content></ng-content>

@@ -18,6 +18,7 @@ import { LabelComponent } from './components/label/label.component';
 import { ValidationErrorComponent } from './components/validation-error/validation-error.component';
 import { TabComponent } from './components/tab/tab.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TabsComponent } from './components/tabs/tabs.component';
     LabelComponent,
     ValidationErrorComponent,
     TabComponent,
-    TabsComponent
+    TabsComponent,
+    TooltipComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -60,7 +62,8 @@ import { TabsComponent } from './components/tabs/tabs.component';
     LabelComponent,
     ValidationErrorComponent,
     TabComponent,
-    TabsComponent
+    TabsComponent,
+    TooltipComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

@@ -45,7 +45,6 @@ export class DatepickerComponent implements ControlValueAccessor {
   }
   @Input() minDate: Date;
   @Input() maxDate: Date;
-  @Input() isInModal: boolean = true;
   @Input() calendarWidth: number = 320;
   @Input() dateWidth: number = 200;
   public control: FormControl;
@@ -78,11 +77,7 @@ export class DatepickerComponent implements ControlValueAccessor {
 
   toggleCalendar() {
     const tabletWidth = 720;
-    if (this.isInModal) {
-      this.windowWidth = window.innerWidth * 0.95;
-    } else {
-      this.windowWidth = window.innerWidth > tabletWidth ? tabletWidth : window.innerWidth;
-    }
+    this.windowWidth = window.innerWidth > tabletWidth ? tabletWidth : window.innerWidth;
     if (!this.isDisabled) {
       this.isCalendarOpen = !this.isCalendarOpen;
     }
@@ -99,10 +94,6 @@ export class DatepickerComponent implements ControlValueAccessor {
 
   ngAfterViewInit(): void {
     this.windowWidth = window.innerWidth;
-
-    // if (this.swapOpenDirection) {
-    //   this.offsetCalendarOpenPosition = -(this.calendarWidth - this.dateWidth) + 'px';
-    // }
   }
 
   private propagateChange: Function = (_: string) => { };

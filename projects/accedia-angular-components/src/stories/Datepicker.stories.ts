@@ -1,6 +1,5 @@
 import { moduleMetadata, type Meta, type StoryObj, applicationConfig } from '@storybook/angular';
-import { AnimationPosition, ExpandableArrowComponent } from '../lib/components/expandable/expandable-arrow/expandable-arrow.component';
-import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { DatepickerComponent } from '../lib/components/datepicker/datepicker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -42,6 +41,12 @@ const meta: Meta<DatepickerComponent> = {
         }),
     ],
     argTypes: {
+        swapOpenDirection: {
+            description: 'changes how the calendar opens. Useful when using it at the end of a layout since it is absolutely positioned'
+        },
+        isCalendarOpen: {
+            description: 'toggles the calendar'
+        },
     },
 };
 

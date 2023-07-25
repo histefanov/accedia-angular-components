@@ -28,7 +28,7 @@ const meta: Meta<ModalComponent> = {
                 ...props,
             },
             template: `
-            <afc-modal header="Title">
+            <afc-modal header="Title" width='400'>
                 <acc-button isOpenButton title="Open Modal"></acc-button>
                 <div class="content">
                     <acc-button emitValue="isCloseModal" title="Close Modal"></acc-button>
