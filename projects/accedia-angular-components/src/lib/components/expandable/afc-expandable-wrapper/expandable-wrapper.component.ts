@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BehaviorSubject, take } from 'rxjs';
 
 @Component({
@@ -8,6 +8,10 @@ import { BehaviorSubject, take } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ExpandableWrapperComponent {
+
+  @Input() set isExpanded(expanded: boolean) {
+    this.isExpanded$.next(expanded);
+  }
 
   public isExpanded$ = new BehaviorSubject<boolean | null>(null);
 

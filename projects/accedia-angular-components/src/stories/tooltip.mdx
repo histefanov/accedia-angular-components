@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as TooltipStories from "./tooltip.stories.ts";
+import GithubIcon from "./assets/github-mark.svg";
+
+<Meta of={TooltipStories} />
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# tooltip
+
+The <strong>tooltip</strong> component can wrap any element to quickly show a desired tooltip inheriting the child element dimensions with content projection. Afterwards we can select our desired position of the tooltip itself. In the example we have used a button component as our `<ng-content>`. In React we refer this as a child node.
+<Canvas of={TooltipStories.Primary} />
+
+<Controls />
+
+{/* ## Functionality: */}
+
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[tooltip component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/tooltip)<br />

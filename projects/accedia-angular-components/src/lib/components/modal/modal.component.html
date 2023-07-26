@@ -1,0 +1,31 @@
+<div class="modal-wrapper" (click)="toggleModal()">
+  <ng-content select="[isOpenButton]"></ng-content>
+</div>
+
+<div *ngIf="isOpen" class="background-container" (click)="externalClickClose($event)">
+  <div
+    [ngStyle]="{ width: width + 'px' }"
+    [ngClass]="['content-container', variant, noScrollbarContentContainer ? 'noScrollbar' : '']"
+  >
+    <div *ngIf="variant !== 'standard'" class="color-bar"></div>
+    <div [ngStyle]="{ padding: reversedPadding ? '0px' : null }" class="inner-container">
+      <div
+        *ngIf="header"
+        class="header-container"
+        [ngStyle]="{ padding: reversedPadding ? '24px 24px 20px 24px' : null }"
+      >
+        <div class="header-content">
+          <img *ngIf="variant === 'error'" src="../../../../assets/icons/warning.svg" class="warning-icon" />
+          {{ header }}
+        </div>
+        <img class="close-btn" *ngIf="withCloseButton" (click)="toggleModal()" src="../../../assets/images/delete.svg">
+      </div>
+      <div class="body-container">
+        <ng-container *ngIf="content">
+          {{ content }}
+        </ng-container>
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
