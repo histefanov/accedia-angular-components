@@ -1,0 +1,9 @@
+<acc-label [withAsterisk]="withAsterisk">
+  {{ label }}
+</acc-label>
+<div
+  class="radio-buttons-container"
+  [ngClass]="{ column: direction === 'column', box: variant === 'box' }"
+>
+  <ng-content></ng-content>
+</div>
