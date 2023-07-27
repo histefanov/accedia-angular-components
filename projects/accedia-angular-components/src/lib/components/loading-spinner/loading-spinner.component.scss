@@ -1,0 +1,122 @@
+@import '../../../assets/styles/breakpoints.scss';
+
+$animation-function: 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+.container {
+  position: relative;
+  aspect-ratio: 1;
+
+  &.extra-small {
+    width: 60px;
+
+    @include media(mobile-screen) {
+      width: 40px;
+    }
+  }
+
+  &.small {
+    width: 90px;
+
+    @include media(mobile-screen) {
+      width: 60px;
+    }
+  }
+
+  &.medium {
+    width: 120px;
+
+    @include media(mobile-screen) {
+      width: 90px;
+    }
+  }
+
+  &.large {
+    width: 160px;
+
+    @include media(mobile-screen) {
+      width: 120px;
+    }
+  }
+}
+
+.circle {
+  position: absolute;
+  border-radius: var(--standard-border-radius-circle);
+  aspect-ratio: 1;
+}
+
+.static {
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background-color: var(--primary-color-red);
+  animation: pulse $animation-function;
+}
+
+.animated {
+  z-index: 10;
+  width: 14%;
+}
+
+.animated.first {
+  top: 10%;
+  left: 10%;
+  animation: spinner-first $animation-function;
+  background-color: var(--secondary-color-teal-light);
+}
+
+.animated.second {
+  top: 10%;
+  right: 10%;
+  animation: spinner-second $animation-function;
+  animation-delay: 0.375s;
+  background-color: var(--secondary-color-teal);
+}
+
+@keyframes spinner-first {
+  0% {
+    top: 10%;
+    left: 10%; 
+  }
+  50% {
+    top: 76%;
+    left: 76%;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+    z-index: 0;
+  }
+}
+
+@keyframes spinner-second {
+  0% {
+    top: 10%;
+    right: 10%;
+  }
+  50% {
+    top: 76%;
+    right: 76%;
+  }
+  100% {
+    top: 10%;
+    right: 10%;
+    z-index: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

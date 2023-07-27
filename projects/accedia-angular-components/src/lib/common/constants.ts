@@ -21,6 +21,7 @@ export const DIRECTION_ROW = 'row';
 export const DIRECTION_COLUMN = 'column';
 
 // Generic size properties
+export const SIZE_EXTRA_SMALL = 'extra-small';
 export const SIZE_SMALL = 'small';
 export const SIZE_MEDIUM = 'medium';
 export const SIZE_LARGE = 'large';

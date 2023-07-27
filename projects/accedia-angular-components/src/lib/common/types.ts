@@ -8,6 +8,7 @@ import {
   SIZE_LARGE,
   SIZE_MEDIUM,
   SIZE_SMALL,
+  SIZE_EXTRA_SMALL,
   VARIANT_BOX,
   VARIANT_FILLED,
   VARIANT_OUTLINED,
@@ -15,6 +16,12 @@ import {
 } from './constants';
 
 export type InlineStyle = { [key: string]: string };
+
+export type LoadingSpinnerSize =
+  | typeof SIZE_EXTRA_SMALL
+  | typeof SIZE_SMALL
+  | typeof SIZE_MEDIUM
+  | typeof SIZE_LARGE;
 
 // Button property types
 export type ButtonSize =
