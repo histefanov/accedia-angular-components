@@ -1,5 +1,7 @@
 :root {
   // color palette
+  --primary-color-red-lighter: #dca4a1;
+  --primary-color-red-light: #cd544d;
   --primary-color-red: #cc1f17;
   --primary-color-red-dark: #a60000;
   --primary-color-white: #ffffff;
@@ -9,6 +11,9 @@
   --neutral-color-grey-light: #dcdcdc;
   --box-shadow-color-black: #00000029;
   --secondary-egg-shell-color: #f0f1d7;
+  --secondary-color-yellow: #DBA507;
+  --secondary-color-teal-light: #8EC7D2;
+  --secondary-color-teal: #0D6986;
 
   // fonts
   --standard-font-family-open-sans: 'Open Sans', 'Segoe UI', Tahoma, sans-serif;
@@ -29,6 +34,7 @@
 
   // border-radius
   --standard-border-radius-small: 5px;
+  --standard-border-radius-circle: 50%;
 
   // box-shadows
   --standard-box-shadow-small: 0 1px 4px var(--box-shadow-color-black);
