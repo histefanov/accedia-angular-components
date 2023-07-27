@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SIZE_LARGE, SIZE_MEDIUM, SIZE_SMALL, VARIANT_FILLED, VARIANT_OUTLINED } from '../../common/constants';
-import { InlineStyle } from '../../common/types';
+import { SIZE_MEDIUM, VARIANT_FILLED } from '../../common/constants';
+import { ButtonSize, ButtonVariant, InlineStyle } from '../../common/types';
 
 @Component({
   selector: 'acc-button',
@@ -10,9 +10,9 @@ import { InlineStyle } from '../../common/types';
 export class ButtonComponent {
   @Input() color?: string;
   @Input() disabled: boolean = false;
-  @Input() size: typeof SIZE_SMALL | typeof SIZE_MEDIUM | typeof SIZE_LARGE = SIZE_MEDIUM;
+  @Input() size: ButtonSize = SIZE_MEDIUM;
   @Input() title?: string;
-  @Input() variant: typeof VARIANT_FILLED | typeof VARIANT_OUTLINED = VARIANT_FILLED;
+  @Input() variant: ButtonVariant = VARIANT_FILLED;
   @Output() click = new EventEmitter();
 
   getInputStyles(): InlineStyle {

@@ -1,0 +1,31 @@
+<div
+  class="field-container"
+  [ngClass]="{ 'label-before': labelPosition === 'before', 'variant-box': variant === 'box', checked: checked, disabled: disabled }"
+>
+  <div 
+    *ngIf="variant === 'box'"
+    class="touch-target-box"
+    (click)="onTouchTargetClick($event)"></div>
+  <div [ngClass]="['radio-container', checkboxType]">
+    <input
+      #input
+      type="radio"
+      class="input"
+      [id]="inputId"
+      [checked]="checked"
+      [disabled]="disabled"
+      [attr.value]="value"
+      (change)="onChange($event)"
+      (blur)="onBlur()"
+    />
+    <div class="touch-target" (click)="onTouchTargetClick($event)"></div>
+    <div class="radio-visualization">
+      <span class="outer-circle"></span>
+      <span *ngIf="checkboxType === 'dot'" class="inner-circle"></span>
+      <span *ngIf="checkboxType === 'tick'" class="check-mark"></span>
+    </div>
+  </div>
+  <acc-label [formElementId]="inputId">
+    <ng-content></ng-content>
+  </acc-label>
+</div>

@@ -20,6 +20,8 @@ import { TabComponent } from './components/tab/tab.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { RadioButtonComponent } from './components/radio-button/radio-button.component';
+import { RadioGroupComponent } from './components/radio-group/radio-group.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     TabComponent,
     TabsComponent,
     TooltipComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    RadioButtonComponent,
+    RadioGroupComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -66,7 +70,9 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     TabComponent,
     TabsComponent,
     TooltipComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    RadioButtonComponent,
+    RadioGroupComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

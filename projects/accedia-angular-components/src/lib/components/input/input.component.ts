@@ -60,8 +60,8 @@ export class InputComponent implements AfterViewInit {
     this.propagateChange(value);
   }
 
-  private _id: string;
   private autoId = `acc-input-${nextUniqueId}`;
+  private _id: string;
   private _value: string;
 
   private propagateChange: Function = (_: string) => {};
