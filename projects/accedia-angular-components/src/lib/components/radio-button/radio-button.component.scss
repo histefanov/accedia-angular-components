@@ -21,7 +21,7 @@
       transition: outline-color 200ms;
 
       &.disabled {
-        outline-color: var(--neutral-color-grey);
+        outline-color: var(--neutral-color-grey-light);
       }
     }
 
@@ -141,7 +141,7 @@
   }
 
   &:disabled~.radio-visualization .outer-circle {
-    background-color: var(--neutral-color-grey);
+    background-color: var(--neutral-color-grey-lighter);
     border-color: transparent;
   }
 
@@ -166,8 +166,8 @@
   }
 
   &:disabled~.radio-visualization .outer-circle {
-    background-color: var(--neutral-color-grey);
-    border-color: var(--neutral-color-grey);
+    background-color: var(--neutral-color-grey-lighter);
+    border-color: var(--neutral-color-grey-lighter);
   }
 
   &:disabled:checked~.radio-visualization {
