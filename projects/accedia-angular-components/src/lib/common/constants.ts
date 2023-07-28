@@ -13,6 +13,8 @@ export const CHECK_SYMBOL_DOT = 'dot';
 export const CHECK_SYMBOL_TICK = 'tick';
 
 // Generic position properties
+export const POSITION_ABOVE = 'above';
+export const POSITION_BELOW = 'below';
 export const POSITION_BEFORE = 'before';
 export const POSITION_AFTER = 'after';
 
@@ -26,7 +28,15 @@ export const SIZE_SMALL = 'small';
 export const SIZE_MEDIUM = 'medium';
 export const SIZE_LARGE = 'large';
 
+// Generic state properties
+export const STATE_ON = 'on';
+export const STATE_OFF = 'off';
+
 // Input types
 export const INPUT_TEXT = 'text';
 export const INPUT_NUMBER = 'number';
 export const INPUT_PASSWORD = 'password';
+
+// Colors
+
+export const PRIMARY_COLOR_RED = '#cc1f17';

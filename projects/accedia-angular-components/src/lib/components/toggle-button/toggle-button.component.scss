@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+
+  &.above {
+    flex-direction: column;
+  }
+
+  &.below {
+    flex-direction: column-reverse;
+  }
+
+  &.before {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &.after {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+.toggle-button {
+  position: relative;
+  width: 49px;
+  height: 28px;
+  border: none;
+  border-radius: 14px;
+  background: var(--neutral-color-grey-light);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+
+  &:disabled {
+    cursor: default;
+
+    .toggle-ball {
+      background: var(--neutral-color-grey);
+    }
+  }
+}
+
+.toggle-ball {
+  width: 18.67px;
+  height: 18.67px;
+  background: var(--primary-color-white);
+  border-radius: var(--standard-border-radius-circle);
+  margin: 0 5.83px;
+}
+
+.onStateText {
+  position: absolute;
+  margin-left: 0.5rem;
+}
+
+.onStateText,
+.offStateText {
+  color: var(--primary-color-black);
+}

@@ -1,0 +1,23 @@
+<div [ngClass]="['container', labelPosition]">
+  <acc-label [withAsterisk]="withAsterisk">
+    {{ label }}
+  </acc-label>
+  <button
+    type="button"
+    class="toggle-button"
+    (click)="toggleState()"
+    [disabled]="disabled"
+    [@toggleBackground]="{
+      value: state,
+      params: { onStateColor: onStateColor }
+    }"
+  >
+    <span *ngIf="onStateText" class="onStateText">
+      {{ onStateText }}
+    </span>
+    <div class="toggle-ball" [@toggleButton]="state"></div>
+    <span *ngIf="offStateText" class="offStateText">
+      {{ offStateText }}
+    </span>
+  </button>
+</div>

@@ -10,8 +10,10 @@ import {
   group,
   sequence
 } from '@angular/animations';
+import { PRIMARY_COLOR_RED } from './constants';
 
 const TAB_SLIDER_TIMING_FN = '1000ms cubic-bezier(0.4, 0, 0.2, 1)';
+const NEUTRAL_COLOR_GREY_LIGHT = '#dcdcdc';
 
 export const flyInOutLeftColumn = [
   trigger('flyInOutLeftColumn', [
@@ -119,16 +121,23 @@ export const toggleButtonAnimation = [
   trigger('toggleButton', [
     state('on', style({ transform: 'translateX(100%)' })),
     state('off', style({ transform: 'translateX(0)' })),
-    transition('on <=> off', animate('300ms ease-out'))
+    transition('on <=> off', animate('250ms cubic-bezier(0.4, 0, 0.2, 1)'))
   ])
 ];
 
 export const toggleBackgroundAnimation = [
   trigger('toggleBackground', [
-    state('on', style({ background: 'var(--primary-connected-orange-color)' })),
-    state('off', style({ background: 'var(--toggle-button-grey-color)' })),
-    transition('on <=> off', [group([query('@toggleButton', [animateChild()]), animate('300ms ease-out')])])
-  ])
+    state('on', style({ background: '{{onStateColor}}' }), {
+      params: { onStateColor: PRIMARY_COLOR_RED },
+    }),
+    state('off', style({ background: NEUTRAL_COLOR_GREY_LIGHT })),
+    transition('on <=> off', [
+      group([
+        query('@toggleButton', [animateChild()]),
+        animate('250ms cubic-bezier(0.4, 0, 0.2, 1)'),
+      ]),
+    ]),
+  ]),
 ];
 
 export const flyInOut = [
