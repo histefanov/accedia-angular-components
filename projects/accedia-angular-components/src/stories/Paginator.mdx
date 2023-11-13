@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as PaginatorStories from "./Paginator.stories.ts";
+import GithubIcon from "./assets/github-mark.svg";
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Loading spinner
+
+The <strong>Loading spinner</strong> is a simple loading indicator used 
+as a fallback component of loading or processing activities in your Angular application.
+
+<Meta of={PaginatorStories} />
+
+<Canvas of={PaginatorStories.Primary} />
+
+<Controls />
+
+## Usage
+
+To use the <strong>Loading spinner</strong> component, simply import it into your Angular 
+module and add it to your template. You can customize the size of the 
+spinner by using the size input property.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Loading spinner component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/loading-spinner)

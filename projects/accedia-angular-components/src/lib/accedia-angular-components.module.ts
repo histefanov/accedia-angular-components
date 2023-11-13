@@ -22,6 +22,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { RadioGroupComponent } from './components/radio-group/radio-group.compon
     TooltipComponent,
     LoadingSpinnerComponent,
     RadioButtonComponent,
-    RadioGroupComponent
+    RadioGroupComponent,
+    PaginatorComponent
   ],
   imports: [
     ProgressBarComponent,

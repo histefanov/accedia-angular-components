@@ -4,5 +4,14 @@
   [disabled]="disabled"
   (click)="this.click.emit()"
 >
+  <div
+    *ngIf="iconSrc"
+    [ngStyle]="{
+      '-webkit-mask-image': 'url(' + iconSrc + ')',
+      'width': iconSize + 'px'
+    }"
+    class="icon"
+  >
+  </div>
   <span *ngIf="title">{{ title }}</span>
 </button>

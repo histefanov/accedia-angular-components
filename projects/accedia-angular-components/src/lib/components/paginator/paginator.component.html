@@ -1,0 +1,29 @@
+<div class="paginator-container">
+  <div class="paginator-button-wrapper">
+    <acc-button
+      *ngIf="hasPrevious"
+      @fadeInOutRapid
+      [title]="(breakpointService.isMobile$ | async) ? '' : 'Previous'"
+      size="medium"
+      iconSrc="./assets/icons/previous-arrow.svg"
+      ngClass="align-left paginator-button"
+      (clickBtn)="previous()"
+    ></acc-button>
+  </div>
+  <span class="metadata">
+    {{pageNumber}} of {{totalPages}}
+  </span>
+  <div class="paginator-button-wrapper">
+    <acc-button
+      *ngIf="hasNext"
+      @fadeInOutRapid
+      [title]="(breakpointService.isMobile$ | async) ? '' : 'Next'"
+      size="medium"
+      iconSrc="./assets/icons/next-arrow.svg"
+      iconPosition="end"
+      ngClass="align-right paginator-button"
+      (clickBtn)="next()"
+    >
+    </acc-button>
+  </div>
+</div>

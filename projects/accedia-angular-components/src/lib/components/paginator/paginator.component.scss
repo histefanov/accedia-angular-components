@@ -1,0 +1,26 @@
+@import '../../../assets/styles/breakpoints.scss';
+
+.paginator-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.paginator-button-wrapper {
+  &:first-of-type {
+    justify-self: start;
+  }
+
+  &:last-of-type {
+    justify-self: end;
+  }
+}
+
+.metadata {
+  justify-self: center;
+  color: var(--neutral-color-grey);
+
+  @include media(mobileBreakPointTreshold) {
+    font-size: 14px;
+  }
+}
