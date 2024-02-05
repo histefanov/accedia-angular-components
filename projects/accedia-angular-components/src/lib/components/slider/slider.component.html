@@ -1,0 +1,17 @@
+<div class="slider-container">
+  <div [ngClass]="label ? 'hasLabel' : 'noLabel'" class="label-container">
+    <label class="label"> {{ label }}</label>
+  </div>
+  <div class="slider-wrapper">
+    <div class="slider" #slider>
+      <div class="thumb" #thumb [ngStyle]="{ width: thumbSize + 'px', height: thumbSize + 'px' }"><ng-container *ngIf="valueOnThumb">{{sliderValue}}</ng-container></div>
+      <div
+        class="track"
+        #track
+        [ngClass]="[isDragging ? 'track-dragging' : '']"
+        [style]="{ width: sliderValue + '%' }"
+      ></div>
+    </div>
+    <div *ngIf="showValue" class="slider-wrapper__amount">{{ sliderValue || 0 }}%</div>
+  </div>
+</div>

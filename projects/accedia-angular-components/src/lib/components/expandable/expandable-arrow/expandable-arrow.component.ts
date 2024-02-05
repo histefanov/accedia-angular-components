@@ -49,7 +49,7 @@ export class ExpandableArrowComponent implements OnInit, OnDestroy {
   @Input() sizeMobile: string = '48px';
   @Input() arrowColor: string;
   @Input() isClockwise = true;
-  @Input() triggerArrowClick = true;
+  @Input() triggerArrowClick = false;
 
   private subs = new Subscription();
   private _animationSpeed: AnimationSpeed;
