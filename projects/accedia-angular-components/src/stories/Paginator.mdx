@@ -10,10 +10,9 @@ import GithubIcon from "./assets/github-mark.svg";
   `}
 </style>
 
-# Loading spinner
+# Paginator
 
-The <strong>Loading spinner</strong> is a simple loading indicator used 
-as a fallback component of loading or processing activities in your Angular application.
+The <strong>Paginator</strong> component provides pagination functionality for navigating through a collection of items. It enables users to control the number of items displayed per page and navigate through pages efficiently.
 
 <Meta of={PaginatorStories} />
 
@@ -21,12 +20,22 @@ as a fallback component of loading or processing activities in your Angular appl
 
 <Controls />
 
+## Functionality
+
+<ul>
+  <li>Displays pagination controls such as previous, next, first, and last buttons.</li>
+  <li>Allows customization of the number of visible page buttons.</li>
+  <li>Supports customization of page size and provides options for selecting different page sizes.</li>
+  <li>Emits events when the page changes, providing the updated page index, page size, and total number of items.</li>
+</ul>
+
 ## Usage
 
-To use the <strong>Loading spinner</strong> component, simply import it into your Angular 
-module and add it to your template. You can customize the size of the 
-spinner by using the size input property.
+The Paginator component is integrated into your Angular application by adding the `<acc-paginator>` element to your template.
+Configure its inputs to customize its behavior, such as setting the total number of items using `itemsLength`, specifying the current page index
+with `pageIndex`, defining the number of visible page buttons with `pageButtonsCount`, etc. (please refer to the component's <strong>Controls</strong> for further information).<br/>
+Implement the `(pageChange)` event handler to capture page change events and update the data accordingly.
 
 ## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
 
-[Loading spinner component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/loading-spinner)
+[Paginator component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/paginator)
