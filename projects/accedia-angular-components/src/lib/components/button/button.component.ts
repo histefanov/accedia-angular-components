@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { SIZE_MEDIUM, VARIANT_FILLED } from '../../common/constants';
-import { ButtonSize, ButtonVariant, InlineStyle } from '../../common/types';
+import { POSITION_BEFORE, SIZE_MEDIUM, VARIANT_FILLED } from '../../common/constants';
+import { ButtonIconPosition, ButtonSize, ButtonVariant, InlineStyle } from '../../common/types';
 
 @Component({
   selector: 'acc-button',
@@ -10,6 +10,9 @@ import { ButtonSize, ButtonVariant, InlineStyle } from '../../common/types';
 export class ButtonComponent {
   @Input() color?: string;
   @Input() disabled: boolean = false;
+  @Input() iconPosition: ButtonIconPosition = POSITION_BEFORE;
+  @Input() iconSize: number = 14;
+  @Input() iconSrc: string;
   @Input() size: ButtonSize = SIZE_MEDIUM;
   @Input() title?: string;
   @Input() variant: ButtonVariant = VARIANT_FILLED;

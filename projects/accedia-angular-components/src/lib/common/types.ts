@@ -33,6 +33,7 @@ export type ButtonSize =
   | typeof SIZE_MEDIUM
   | typeof SIZE_LARGE;
 export type ButtonVariant = typeof VARIANT_FILLED | typeof VARIANT_OUTLINED;
+export type ButtonIconPosition = typeof POSITION_BEFORE | typeof POSITION_AFTER;
 
 // Radio button types
 export type RadioButtonCheckboxType =

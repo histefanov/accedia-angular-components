@@ -53,7 +53,7 @@ export class ExpandableArrowComponent implements OnInit, OnDestroy {
 
   private subs = new Subscription();
   private _animationSpeed: AnimationSpeed;
-  public arrowPath = '../../../../assets/images/nextArrow.svg';
+  public arrowPath = '../../../../assets/images/next-arrow.svg';
 
   public get getNumberSpeed() {
     return this._animationSpeed;

@@ -1,0 +1,66 @@
+<nav class="paginator-container">
+  <div *ngIf="showPageSize" class="items-per-page">
+    <span *ngIf="!pageSizeOptions; else pageSizeMenu" class="label">
+      Items per page: {{ pageSize }}
+    </span>
+    <ng-template #pageSizeMenu>
+      <span class="label">Items per page:</span>
+      <div class="page-select">
+        <img class="chevron" src="assets/images/chevron-down.svg" width="14"/>
+        <select (change)="changePageSize($event)" [disabled]="disabled">
+          <option *ngFor="let pageSize of pageSizeOptions" [value]="pageSize">{{ pageSize }}</option>
+        </select>
+      </div>
+    </ng-template>
+  </div>
+  <div class="range-actions">
+    <div *ngIf="showRange" class="items-range">
+      <span class="label">
+        {{ getRangeLabel() }}
+      </span>
+    </div>
+    <div class="actions">
+      <button
+        *ngIf="showFirstLastButtons"
+        class="button"
+        [disabled]="!hasPrevious || disabled"
+        (click)="goToFirst()"
+      >
+        <img src="assets/images/chevrons-left.svg" alt="first page">
+      </button>
+      <button
+        class="button"
+        [disabled]="!hasPrevious || disabled"
+        (click)="goToPrevious()"
+      >
+        <img src="assets/images/chevron-left.svg" alt="previous page">
+      </button>
+      <ng-container *ngIf="!hidePageButtons">
+        <button 
+          *ngFor="let pageNumber of getPageNumbersInRange()"
+          class="button"
+          [class.active]="pageNumber === pageIndex + 1"
+          [disabled]="disabled"
+          (click)="goTo(pageNumber)"
+        >
+          {{pageNumber}}
+        </button>
+      </ng-container>
+      <button
+        class="button"
+        [disabled]="!hasNext || disabled"
+        (click)="goToNext()"
+      >
+        <img src="assets/images/chevron-right.svg" alt="next page">
+      </button>
+      <button
+        *ngIf="showFirstLastButtons"
+        class="button"
+        [disabled]="!hasNext || disabled"
+        (click)="goToLast()"
+      >
+        <img src="assets/images/chevrons-right.svg" alt="last page">
+      </button>
+    </div>
+  </div>
+</nav>

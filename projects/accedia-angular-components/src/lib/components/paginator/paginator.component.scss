@@ -1,0 +1,125 @@
+$container-gap: 1.5rem;
+$button-diameter: 2.625rem;
+
+:host {
+  font-family: var(--standard-font-family-open-sans);
+  color: var(--neutral-color-grey-dark);
+}
+
+@mixin flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginator-container {
+  @include flex-container;
+  gap: $container-gap;
+  flex-wrap: wrap;
+}
+
+.items-per-page {
+  @include flex-container;
+  gap: 0.5rem;
+}
+
+.range-actions {
+  @include flex-container;
+  gap: 0.75rem;
+  flex-wrap: wrap-reverse;
+}
+
+.items-range {
+  @include flex-container;
+  justify-content: flex-start;
+  min-width: 100px;
+}
+
+.actions {
+  @include flex-container;
+  gap: 0.25rem;
+  
+  .button {
+    @include flex-container;
+    min-width: $button-diameter;
+    height: $button-diameter;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    background-color: transparent;
+    color: var(--neutral-color-grey-dark);
+
+    img {
+      // EQUALS --neutral-color-grey-dark;
+      filter: invert(45%) sepia(0%) saturate(1360%) hue-rotate(206deg) brightness(95%) contrast(84%);
+    }
+
+    &.active:not(:disabled) {
+      background-color: var(--primary-color-red-opaque-100);
+      color: var(--primary-color-red-dark);
+    }
+
+    &.active:disabled {
+      background-color: var(--svg-button-color-hover);
+    }
+
+    &:disabled {
+      color: var(--svg-button-color-disabled);
+
+      img {
+        // EQUALS --svg-button-color-disabled;
+        filter: invert(91%) sepia(0%) saturate(0%) hue-rotate(154deg) brightness(89%) contrast(80%);
+      }
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:hover:not(.active, :disabled) {
+      background-color: var(--svg-button-color-hover);
+      color: var(--neutral-color-grey-darker);
+      transition: background-color 150ms var(--standard-transition-timing-function);
+
+      img {
+        // EQUALS --neutral-color-grey-darker;
+        filter: invert(30%) sepia(9%) saturate(0%) hue-rotate(275deg) brightness(95%) contrast(101%);
+      }
+    }
+  }
+}
+
+.label {
+  font-size: 0.75rem;
+}
+
+.page-select {
+  position: relative;
+  
+  select {
+    outline: none;
+    padding-left: 0.75rem;
+    min-width: 4.5rem;
+    height: $button-diameter;
+    appearance: none;
+    border-radius: 5px;
+    border-color: var(--neutral-color-grey-light);
+    color: var(--neutral-color-grey-dark);
+    font-family: var(--standard-font-family-open-sans);
+    transition: border-color 200ms var(--standard-transition-timing-function);
+
+    &:hover:not(:disabled) {
+      border-color: var(--neutral-color-grey);
+      cursor: pointer;
+    }
+  }
+
+  .chevron {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    filter: invert(45%) sepia(0%) saturate(1360%) hue-rotate(206deg) brightness(95%) contrast(84%);
+  }
+}

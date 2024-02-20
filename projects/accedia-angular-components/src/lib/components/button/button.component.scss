@@ -16,6 +16,14 @@
   transition-duration: var(--standard-transition-duration-100);
   transition-timing-function: var(--standard-transition-timing-function);
 
+  .icon {
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+    aspect-ratio: 1;
+    background: var(--primary-color-white);
+  }
+
   &.filled:disabled {
     cursor: auto;
     border-color: var(--neutral-color-grey-light);
@@ -31,6 +39,10 @@
       cursor: auto;
       border-color: var(--neutral-color-grey);
       color: var(--neutral-color-grey);
+
+      .icon {
+        background: var(--neutral-color-grey);
+      }
     }
   }
 

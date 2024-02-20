@@ -25,6 +25,7 @@ import { RadioGroupComponent } from './components/radio-group/radio-group.compon
 import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { ToggleButtonComponent } from './components/toggle-button/toggle-button.
     TableComponent,
     TableRowComponent
     ToggleButtonComponent
+    PaginatorComponent
   ],
   imports: [
     ProgressBarComponent,
