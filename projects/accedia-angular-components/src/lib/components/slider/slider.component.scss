@@ -1,8 +1,9 @@
 @import '../../../assets/styles/breakpoints.scss';
-$ms: 170ms;
 
 :host {
   width: 100%;
+  touch-action: none;
+  font-family: var(--standard-font-family-open-sans);
 }
 
 .slider-wrapper {
@@ -33,12 +34,24 @@ $ms: 170ms;
 .slider {
   width: 100%;
   position: relative;
-  // width: auto;
   height: 8px;
-  background-color: white;
+  background-color: var(--main-white-color);
   border-radius: 8px;
   cursor: pointer;
   box-shadow: 0px 1px 5px #00000029;
+
+  &.disabled {
+    pointer-events: none;
+
+    .track {
+      background-color: var(--neutral-color-grey-lighter);
+      box-shadow: none;
+    }
+
+    .thumb {
+      background-color: var(--neutral-color-grey-light);
+    }
+  }
 }
 
 .track {
@@ -49,18 +62,14 @@ $ms: 170ms;
   width: 0px;
   border-radius: 8px;
   box-shadow: 0px 1px 5px #00000029;
-  transition: width $ms cubic-bezier(0.5, 0.3, 0.3, 0.5);
-  background-color: var(--primary-color-red-lighter);
-
-  &-dragging {
-    transition: none;
-  }
+  transition-property: width;
+  background-color: var(--primary-color-red-light);
 }
 
 .thumb {
   z-index: 1;
   position: absolute;
-  background-color: var(--primary-color-red);
+  background-color: var(--primary-color-red-lighter);
   border-radius: 50%;
   cursor: pointer;
   top: 50%;
@@ -69,13 +78,15 @@ $ms: 170ms;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14px;
-  color: white;
-  font-weight: 500;
+  font-size: 12px;
+  color: var(--primary-color-white-opaque-600);
+  transition-property: left;
+}
 
-  &-animation {
-    transition: left $ms cubic-bezier(0.5, 0.3, 0.3, 0.5);
-  }
+.animating .thumb,
+.animating .track {
+  transition-duration: 170ms;
+  transition-timing-function: cubic-bezier(0.5, 0.3, 0.3, 0.5);
 }
 
 .label-container {

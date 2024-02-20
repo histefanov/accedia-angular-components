@@ -20,20 +20,30 @@ const meta: Meta<SliderComponent> = {
       props,
       template: `
       <div [ngStyle]="{ display: 'flex', padding: '5px', flexDirection: 'column', 'align-items' : 'center', width: '300px', padding: '5px', }">
-      <acc-slider 
-      [thumbSize]="thumbSize"
-      [label]="label"
-      [showValue]="showValue"
-      [valueOnThumb]="valueOnThumb"
-      [sliderValue]="sliderValue"
-    >
-    </acc-slider>
+        <acc-slider 
+          [disabled]="disabled"
+          [thumbSize]="thumbSize"
+          [label]="label"
+          [showValue]="showValue"
+          [valueOnThumb]="valueOnThumb"
+          [sliderValue]="sliderValue"
+        >
+        </acc-slider>
       </div>
-
       `
     }
   },
   argTypes: {
+    disabled: {
+      name: 'disabled',
+      description: 'Slider disabled state',
+      control: 'boolean',
+      table: {
+        defaultValue: {
+          summary: false
+        }
+      }
+    },
     thumbSize: {
       name: 'thumbSize?',
       description: 'Adjusts the size of the thumb',
@@ -41,14 +51,13 @@ const meta: Meta<SliderComponent> = {
       options: [24, 32],
       table: {
         defaultValue: {
-          summary: 24
+          summary: 32
         }
       }
     },
-
     showValue: {
       name: 'showValue',
-      description: 'show value on the right',
+      description: 'Show the current value on the right',
       control: 'inline-radio',
       options: [true, false],
       table: {
@@ -57,23 +66,35 @@ const meta: Meta<SliderComponent> = {
         }
       }
     },
-
     valueOnThumb: {
       name: 'valueOnThumb',
-      description: 'show value on thumb',
+      description: 'Show the current value on the slider thumb',
       control: 'inline-radio',
       options: [true, false],
       table: {
         defaultValue: {
-          summary: true
+          summary: false
         }
       }
     },
-
     label: {
       name: 'label?',
-      description: 'Label of the radio group element',
+      description: 'Label element for the slider',
+      table: {
+        defaultValue: {
+          summary: 'Amount'
+        }
+      }
     },
+    sliderValue: {
+      name: 'sliderValue',
+      description: 'Slider\'s value',
+      table: {
+        defaultValue: {
+          summary: 0
+        }
+      }
+    }
   },
 };
 
@@ -82,10 +103,11 @@ type Story = StoryObj<SliderComponent>;
 
 export const Primary: Story = {
   args: {
+    disabled: false,
     thumbSize: 24,
     label: 'Slider label',
-    showValue: false,
-    valueOnThumb: true,
+    showValue: true,
+    valueOnThumb: false,
     sliderValue: 50
   }
 };

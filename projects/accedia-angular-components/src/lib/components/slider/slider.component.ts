@@ -1,107 +1,105 @@
-import { Component, ElementRef, Renderer2, ViewChild, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { Subscription, fromEvent } from 'rxjs';
+import { Component, ElementRef, ViewChild, Input, Output, EventEmitter, AfterViewInit, OnDestroy } from '@angular/core';
+import { Subscription, debounceTime, fromEvent, map, switchMap, takeUntil, tap } from 'rxjs';
 
 @Component({
   selector: 'acc-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent {
-  @ViewChild('thumb') thumb: ElementRef;
-  @ViewChild('slider') slider: ElementRef;
-  @ViewChild('track') track: ElementRef;
-
+export class SliderComponent implements AfterViewInit, OnDestroy {
+  @Input() disabled: boolean = false;
   @Input() label: string = 'Amount';
-  @Input() thumbSize: number = 32;
   @Input() showValue: boolean = true;
-  @Input() valueOnThumb: boolean = true;
-  @Output() valueEmitter = new EventEmitter<number>();
-
-  public subs = new Subscription();
-  public adjustThumbMaxLeft = 100;
-  public thumbAnimationName = 'thumb-animation';
-  public thumbRadius = this.thumbSize / 2;
-  public isDragging = false;
-
-  @Input() set sliderValue(val: number) {
-    if (val > 100) {
-      val = 100;
-    }
-    this._sliderValue = val;
+  @Input() valueOnThumb: boolean = false;
+  
+  @Input()
+  get thumbSize(): number {
+    return this._thumbSize;
+  }
+  set thumbSize(value: number) {
+    this._thumbSize = value;
+    this.thumbRadius = this._thumbSize / 2;
+  }
+  
+  @Input() 
+  get sliderValue() {
+    return this._sliderValue;
+  }
+  set sliderValue(value: number) {
+    this._sliderValue = Math.min(value || 0, 100);
     if (this.slider && this.thumb) {
       this.setThumbValues();
     }
   }
-  private _sliderValue: number = 0;
 
-  public get sliderValue() {
-    return this._sliderValue;
-  }
+  @Output() valueChange = new EventEmitter<number>();
 
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent) {
-    if (this.isDragging) {
-      this.handleDrag(event);
-    }
-  }
+  @ViewChild('thumb') thumb: ElementRef;
+  @ViewChild('slider') slider: ElementRef;
 
-  @HostListener('document:mouseup')
-  onMouseUp() {
-    this.handleDragEnd();
-  }
-
-  constructor(private renderer: Renderer2, public elementRef: ElementRef) { }
+  public isDragging = false;
+  public thumbRadius: number = this.thumbSize / 2;
+  
+  private _thumbSize: number = 32;
+  private _sliderValue: number;
+  private _subs = new Subscription();
 
   ngAfterViewInit() {
-    this.subs.add(
-      fromEvent(window, 'mousedown').subscribe((event) => {
-        const isInsideClick = this.elementRef.nativeElement.contains(event.target);
-        if (isInsideClick) {
-          this.renderer.removeClass(this.thumb.nativeElement, this.thumbAnimationName);
-          this.isDragging = true;
-        }
-      })
+    const pointerMove$ = 
+      fromEvent<PointerEvent>(window, 'pointermove')
+        .pipe(
+          map(e => e.clientX),
+          takeUntil(fromEvent<PointerEvent>(document, 'pointerup'))
+        );
+
+    this._subs.add(
+      fromEvent<PointerEvent>(this.thumb.nativeElement, 'pointerdown')
+        .pipe(
+          map(e => e.preventDefault()),
+          tap(() => this.isDragging = true),
+          switchMap(() => pointerMove$)
+        )
+        .subscribe((clientX) => {
+          this.calculateSliderProps(clientX);
+        })
     );
-    this.subs.add(
-      fromEvent(window, 'click').subscribe((event) => {
-        this.handleDragEnd();
-        this.renderer.addClass(this.thumb.nativeElement, this.thumbAnimationName);
-        this.handleClick(event as MouseEvent);
-      })
+
+    this._subs.add(
+      fromEvent<PointerEvent>(this.slider.nativeElement, 'click')
+        .pipe(map(e => e.clientX))
+        .subscribe((event) => {
+          this.isDragging = false;
+          this.calculateSliderProps(event);
+        })
     );
+
+    this._subs.add(
+      fromEvent<Event>(window, 'resize')
+        .pipe(debounceTime(100))
+        .subscribe(() => {
+          this.isDragging = false;
+          this.setThumbValues()
+        })
+    );
+
     this.setThumbValues();
   }
 
-  private handleDrag(event: MouseEvent) {
-    this.sliderCalcs(event);
+  ngOnDestroy() {
+    this._subs.unsubscribe();
   }
 
-  private handleClick(event: MouseEvent) {
-    const isInsideClick = this.slider.nativeElement.contains(event.target);
-    if (isInsideClick) {
-      this.sliderCalcs(event);
-    }
-  }
-
-  private handleDragEnd() {
-    this.isDragging = false;
-  }
-
-  private sliderCalcs(event: MouseEvent) {
+  private calculateSliderProps(clientX: number) {
     const rect = this.slider.nativeElement.getBoundingClientRect();
-    const offsetX = event.clientX - rect.left;
+    const offsetX = clientX - rect.left;
+    
     if (offsetX >= 0) {
       const percentage = (offsetX / rect.width) * 100;
-      let clampedPercentage = Math.max(0, Math.min(100, percentage));
-      let calculation = 0;
-      if (offsetX > rect.width) {
-        calculation = rect.width - this.thumbRadius;
-      } else {
-        calculation = offsetX - this.thumbRadius;
-      }
-      this.thumb.nativeElement.style.left = `${calculation}px`;
+      const clampedPercentage = Math.max(0, Math.min(100, percentage));
       this._sliderValue = Math.round(clampedPercentage);
-      this.valueEmitter.emit(Math.round(clampedPercentage));
+      this.valueChange.emit(this._sliderValue);
+      const thumbPosition = Math.min(offsetX, rect.width) - this.thumbRadius;
+      this.thumb.nativeElement.style.left = `${thumbPosition}px`;
     }
   }
 
