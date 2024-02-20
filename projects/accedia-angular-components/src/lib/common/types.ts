@@ -3,6 +3,8 @@ import {
   CHECK_SYMBOL_TICK,
   DIRECTION_COLUMN,
   DIRECTION_ROW,
+  POSITION_ABOVE,
+  POSITION_BELOW,
   POSITION_AFTER,
   POSITION_BEFORE,
   SIZE_LARGE,
@@ -13,6 +15,8 @@ import {
   VARIANT_FILLED,
   VARIANT_OUTLINED,
   VARIANT_STANDARD,
+  STATE_ON,
+  STATE_OFF,
 } from './constants';
 
 export type InlineStyle = { [key: string]: string };
@@ -39,4 +43,14 @@ export type RadioButtonVariant = typeof VARIANT_STANDARD | typeof VARIANT_BOX;
 export type RadioButtonLabelPosition =
   | typeof POSITION_BEFORE
   | typeof POSITION_AFTER;
-export type RadioGroupDirection = typeof DIRECTION_ROW | typeof DIRECTION_COLUMN;
+export type RadioGroupDirection =
+  | typeof DIRECTION_ROW
+  | typeof DIRECTION_COLUMN;
+
+// Toggle button types
+export type ToggleButtonState = typeof STATE_ON | typeof STATE_OFF;
+export type ToggleButtonLabelPosition =
+  | typeof POSITION_ABOVE
+  | typeof POSITION_BELOW
+  | typeof POSITION_BEFORE
+  | typeof POSITION_AFTER;
