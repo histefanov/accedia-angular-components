@@ -48,8 +48,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     RadioButtonComponent,
     RadioGroupComponent,
     TableComponent,
-    TableRowComponent
-    ToggleButtonComponent
+    TableRowComponent,
+    ToggleButtonComponent,
     PaginatorComponent
   ],
   imports: [
