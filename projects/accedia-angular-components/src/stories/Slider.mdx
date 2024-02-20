@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as SliderStories from "./Slider.stories.ts";
+import GithubIcon from "./assets/github-mark.svg";
+
+# Slider
+
+The <strong>Slider</strong> component provides a user-friendly interface for selecting a value within a range by dragging a thumb along a track.
+It offers customization options for label display, thumb size, and value visibility.
+
+<Meta of={SliderStories} />
+
+<Canvas of={SliderStories.Primary} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li>Allows users to drag the thumb along the slider track to select a value.</li>
+  <li>Supports customization of the slider label and visibility of the selected value.</li>
+  <li>Provides options to configure the size of the thumb and whether the value is displayed on the thumb.</li>
+  <li>Emits events when the slider value changes, allowing you to update the associated data.</li>
+</ul>
+
+## Usage
+
+Integrate the <strong>Slider</strong> component into your Angular application by adding the `<acc-slider>` element to your template.
+Customize its behavior and appearance using input properties such as `disabled` to disable the slider, `label` to set the slider label, and `showValue` to control the visibility of the selected value.
+Additionally, adjust the thumb size using the `thumbSize` input.<br/><br/>
+<strong>valueChange</strong> Event Emitter:<br/>
+The component emits a `valueChange` event whenever the user adjusts the slider value.
+This event provides the updated value of the slider, allowing you to synchronize it with your application's state or perform any necessary actions based on the new value.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Slider component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/slider)<br />
