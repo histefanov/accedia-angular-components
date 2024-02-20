@@ -24,6 +24,7 @@ import { RadioButtonComponent } from './components/radio-button/radio-button.com
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
 import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
+import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { TableRowComponent } from './components/table-row/table-row.component';
     RadioGroupComponent,
     TableComponent,
     TableRowComponent
+    ToggleButtonComponent
   ],
   imports: [
     ProgressBarComponent,
@@ -76,7 +78,8 @@ import { TableRowComponent } from './components/table-row/table-row.component';
     TooltipComponent,
     LoadingSpinnerComponent,
     RadioButtonComponent,
-    RadioGroupComponent
+    RadioGroupComponent,
+    ToggleButtonComponent
   ]
 })
 export class AccediaAngularComponentsModule { }
