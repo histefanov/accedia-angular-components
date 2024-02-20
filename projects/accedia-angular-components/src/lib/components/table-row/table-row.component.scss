@@ -1,0 +1,36 @@
+@import '../../../assets/styles/breakpoints.scss';
+$padding-cell: 0.75rem;
+$padding-first-col: 1rem;
+
+:host {
+  height: 54px;
+  border-bottom: 1px solid var(--neutral-color-grey-light);
+
+  &:last-of-type {
+    border: none;
+  }
+
+  @include media(mobile-screen) {
+    height: 32px;
+  }
+
+  &::ng-deep td {
+    font-family: var(--standard-font-family-open-sans);
+    font-size: 14px;
+    padding: 0.125rem $padding-cell;
+    white-space: nowrap;
+
+    &:first-of-type {
+      padding-left: $padding-first-col;
+    }
+
+    &:last-of-type {
+      padding-right: 0.5rem;
+    }
+
+    @include media(mobile-screen) {
+      padding-right: 1.5rem;
+      font-size: 12px;
+    }
+  }
+}

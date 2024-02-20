@@ -22,6 +22,8 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioGroupComponent } from './components/radio-group/radio-group.component';
+import { TableComponent } from './components/table/table.component';
+import { TableRowComponent } from './components/table-row/table-row.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 
 
@@ -44,6 +46,8 @@ import { ToggleButtonComponent } from './components/toggle-button/toggle-button.
     LoadingSpinnerComponent,
     RadioButtonComponent,
     RadioGroupComponent,
+    TableComponent,
+    TableRowComponent
     ToggleButtonComponent
   ],
   imports: [

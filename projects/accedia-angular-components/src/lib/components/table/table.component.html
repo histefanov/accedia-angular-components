@@ -1,0 +1,13 @@
+<table class="table">
+  <thead 
+    class="table-head"
+    [ngStyle]="getInputStyles()"
+  >
+    <th *ngFor="let header of tableHeaders">
+      {{ header }}
+    </th>
+  </thead>
+  <tbody class="table-body">
+    <ng-content></ng-content>
+  </tbody>
+</table>
