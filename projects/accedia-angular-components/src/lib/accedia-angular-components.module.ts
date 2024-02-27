@@ -26,6 +26,8 @@ import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { SharedModule } from './common/shared.module';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     TableComponent,
     TableRowComponent,
     ToggleButtonComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    BarChartComponent,
   ],
   imports: [
     ProgressBarComponent,
@@ -63,7 +66,8 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     AdditionalInfoComponent,
     BrowserAnimationsModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     ProgressBarComponent,
@@ -81,7 +85,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     LoadingSpinnerComponent,
     RadioButtonComponent,
     RadioGroupComponent,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    PaginatorComponent,
+    BarChartComponent,
   ]
 })
 export class AccediaAngularComponentsModule { }
