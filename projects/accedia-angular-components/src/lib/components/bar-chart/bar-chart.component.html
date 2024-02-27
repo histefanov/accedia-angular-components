@@ -1,0 +1,24 @@
+<div class="bar-chart-container">
+  <ul class="bar-chart" [style.gap.px]="gap">
+    <li 
+      *ngFor="let component of components; index as i"
+      class="bar-chart__component"
+      [style.flexBasis.%]="calculateWidth(component.value)"
+      @barChartComponentIn
+      [@.disabled]="disableAnimations"
+    >
+      <span class="component__filling" [style.backgroundColor]="component.color ?? defaultColors[i]"></span>
+      <span *ngIf="displayComponentLabels" class="component__label">
+        {{ componentLabelType === 'amount' ? component.value : calculatePercentage(component.value) + '%' }}
+      </span>
+    </li>
+  </ul>
+  <div *ngIf="displayLegend" [ngClass]="['legend', legendDirection]">
+    <div *ngFor="let component of components; index as i" class="legend__component">
+      <span class="component__symbol" [style.backgroundColor]="component.color ?? defaultColors[i]"></span>
+      <span class="component__description">
+        {{ component.description | dataField }}
+      </span>
+    </div>
+  </div>
+</div>

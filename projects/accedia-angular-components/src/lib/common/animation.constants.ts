@@ -152,3 +152,12 @@ export const flyInOut = [
     ])
   ])
 ];
+
+export const barChartComponentIn = [
+  trigger('barChartComponentIn', [
+    transition(':enter', [
+      style({ flexBasis: '0px', opacity: '0.1' }),
+      animate('400ms cubic-bezier(0.4, 0, 0.2, 1)', style({ flexBasis: '*', opacity: '1' }))
+    ]),
+  ])
+]
