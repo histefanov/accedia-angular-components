@@ -26,12 +26,15 @@ import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { SelectComponent } from './components/select/select.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 @NgModule({
   declarations: [
     AccediaAngularComponentsComponent,
     ButtonComponent,
+    ProgressBarComponent,
     ExpandableArrowComponent,
     ExpandableContainerComponent,
     ExpandableWrapperComponent,
@@ -50,27 +53,26 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     TableComponent,
     TableRowComponent,
     ToggleButtonComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    SelectComponent,
+    ChartComponent
   ],
   imports: [
-    ProgressBarComponent,
-    ExpandableArrowComponent,
-    ExpandableContainerComponent,
-    ExpandableWrapperComponent,
     CommonModule,
-    BrowserAnimationsModule,
     BrowserModule,
-    AdditionalInfoComponent,
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule
   ],
   exports: [
+    AccediaAngularComponentsComponent,
     ProgressBarComponent,
     ExpandableArrowComponent,
     ExpandableContainerComponent,
     ExpandableWrapperComponent,
     AdditionalInfoComponent,
+    DatepickerComponent,
+    ModalComponent,
     ButtonComponent,
     InputComponent,
     LabelComponent,
@@ -81,7 +83,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     LoadingSpinnerComponent,
     RadioButtonComponent,
     RadioGroupComponent,
-    ToggleButtonComponent
+    ToggleButtonComponent,
+    SelectComponent,
+    ChartComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

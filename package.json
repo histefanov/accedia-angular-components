@@ -22,6 +22,7 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "d3": "^7.9.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -37,6 +38,7 @@
     "@storybook/angular": "^7.0.26",
     "@storybook/blocks": "^7.0.26",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/d3": "^7.4.3",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",

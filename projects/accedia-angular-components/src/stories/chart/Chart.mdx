@@ -1,0 +1,56 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as ChartStories from "./Chart.stories.ts";
+import GithubIcon from "../assets/github-mark.svg";
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Chart
+
+The <strong>Chart</strong> component is a simple yet interactive and customizable wrapper over the external `d3` library.
+
+<Meta of={ChartStories} />
+
+<Canvas of={ChartStories.Basic} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li>
+    <strong>Chart</strong> is used to repreent data structures with the help of
+    a pie chart and an accommodating legend
+  </li>
+  <li>
+    Data is provided for the chart items and optionally the legend (text in
+    legend for the same item can differ from the one in chart itself)
+  </li>
+  <li>
+    The component allows you to customize the <strong>chart's</strong> colors,
+    you are given the ption to set any number of colors, they would follow the
+    items in sequence and repeat if the number of items exceeds the numbers of
+    colors.
+  </li>
+  <li>
+    The option for text contained within the chart is given along with
+    optionally providing a subtext below the main one for further clarification
+  </li>
+</ul>
+
+## Usage
+
+Use the `acc-chart` selector and pass in your desired configuration through the component's input properties.
+Set the `data` attribute to provide the chart's item content. Set the `colors` property to give the chart your
+own identity and match your application's color theme. Provide the `text` and `subtext` properties in order to
+provide the chart with some more detail and ease of use. Toggle the `hasLegend` property to toggle the legend
+on and off.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Chart component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/chart)
