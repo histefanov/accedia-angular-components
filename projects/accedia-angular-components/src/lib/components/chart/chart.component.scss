@@ -1,0 +1,70 @@
+@import "projects/accedia-angular-components/src/assets/styles/breakpoints.scss";
+
+.chart {
+  &__container {
+    display: flex;
+    gap: 1rem;
+
+    > #chart {
+      margin: 0;
+    }
+
+    @include media(mobileBreakPointTreshold) {
+      flex-direction: column;
+    }
+  }
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    max-height: 17rem;
+    width: fit-content;
+    overflow-y: auto;
+    overflow-x: visible;
+
+    @include media(mobileBreakPointTreshold) {
+      margin: 0 2rem;
+      width: 100%;
+      max-height: max-content;
+    }
+
+    > ul {
+      margin: 0 0 0 1rem;
+      padding: 0;
+
+      > li {
+        font-size: 1rem;
+
+        > span {
+          font-family: var(--standard-font-family-open-sans-bold);
+          font-size: 14px;
+          line-height: 2;
+          vertical-align: middle;
+          margin-left: -0.3rem;
+          color: var(--main-black-color);
+        }
+      }
+
+      @include media(mobileBreakPointTreshold) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-track {
+      background-color: var(--neutral-button-color);
+    }
+
+    &::-webkit-scrollbar,
+    &::-webkit-scrollbar-thumb {
+      outline: none;
+      border-radius: 10px;
+      background-color: var(--toggle-button-grey-color);
+    }
+  }
+}

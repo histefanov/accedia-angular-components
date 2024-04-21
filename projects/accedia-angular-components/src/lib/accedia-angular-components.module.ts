@@ -28,12 +28,15 @@ import { ToggleButtonComponent } from './components/toggle-button/toggle-button.
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { SharedModule } from './common/shared.module';
+import { SelectComponent } from './components/select/select.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 @NgModule({
   declarations: [
     AccediaAngularComponentsComponent,
     ButtonComponent,
+    ProgressBarComponent,
     ExpandableArrowComponent,
     ExpandableContainerComponent,
     ExpandableWrapperComponent,
@@ -54,27 +57,26 @@ import { SharedModule } from './common/shared.module';
     ToggleButtonComponent,
     PaginatorComponent,
     BarChartComponent,
+    SelectComponent,
+    ChartComponent
   ],
   imports: [
-    ProgressBarComponent,
-    ExpandableArrowComponent,
-    ExpandableContainerComponent,
-    ExpandableWrapperComponent,
     CommonModule,
-    BrowserAnimationsModule,
     BrowserModule,
-    AdditionalInfoComponent,
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule,
     SharedModule
   ],
   exports: [
+    AccediaAngularComponentsComponent,
     ProgressBarComponent,
     ExpandableArrowComponent,
     ExpandableContainerComponent,
     ExpandableWrapperComponent,
     AdditionalInfoComponent,
+    DatepickerComponent,
+    ModalComponent,
     ButtonComponent,
     InputComponent,
     LabelComponent,
@@ -88,6 +90,8 @@ import { SharedModule } from './common/shared.module';
     ToggleButtonComponent,
     PaginatorComponent,
     BarChartComponent,
+    SelectComponent,
+    ChartComponent
   ]
 })
 export class AccediaAngularComponentsModule { }

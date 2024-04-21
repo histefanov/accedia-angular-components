@@ -1,0 +1,12 @@
+<div class="chart__container">
+  <figure id="chart"></figure>
+  <div *ngIf="hasLegend" class="chart__legend">
+    <ul>
+      <li *ngFor="let item of legendData" [ngStyle]="{ color: item.color }">
+        <span>
+          {{ item.name }}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

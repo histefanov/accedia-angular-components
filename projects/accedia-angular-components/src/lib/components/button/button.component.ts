@@ -30,7 +30,7 @@ export class ButtonComponent {
         style['color'] = this.color;
       }
     }
-    
+
     return style;
   }
 }
