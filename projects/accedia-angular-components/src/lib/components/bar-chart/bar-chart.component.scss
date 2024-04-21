@@ -1,0 +1,80 @@
+@import '../../../assets/styles/breakpoints.scss';
+
+.bar-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-family: var(--standard-font-family-open-sans-bold);
+}
+
+.bar-chart {
+  flex-grow: 1;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 2rem;
+  gap: 5px;
+
+  &__component {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+
+    &:first-child {
+      border-top-left-radius: var(--standard-border-radius-small);
+      border-bottom-left-radius: var(--standard-border-radius-small);
+    }
+
+    &:last-child {
+      border-top-right-radius: var(--standard-border-radius-small);
+      border-bottom-right-radius: var(--standard-border-radius-small);
+    }
+
+    .component__filling {
+      position: absolute;
+      inset: 0;
+      background-color: red;
+    }
+
+    .component__label {
+      position: relative;
+      z-index: 1;
+      padding-right: 0.375rem;
+      color: var(--primary-color-white-opaque-700);
+      font-size: 14px;
+      pointer-events: none;
+    }
+  }
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+  column-gap: 1.25rem;
+
+  &.vertical {
+    flex-direction: column;
+
+  }
+
+  &__component {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    .component__symbol {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50px;
+    }
+    
+    .component__description {
+      font-size: 12px;
+    }
+  }
+}

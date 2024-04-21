@@ -26,6 +26,8 @@ import { TableComponent } from './components/table/table.component';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { ToggleButtonComponent } from './components/toggle-button/toggle-button.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { SharedModule } from './common/shared.module';
 import { SelectComponent } from './components/select/select.component';
 import { ChartComponent } from './components/chart/chart.component';
 
@@ -54,6 +56,7 @@ import { ChartComponent } from './components/chart/chart.component';
     TableRowComponent,
     ToggleButtonComponent,
     PaginatorComponent,
+    BarChartComponent,
     SelectComponent,
     ChartComponent
   ],
@@ -62,7 +65,8 @@ import { ChartComponent } from './components/chart/chart.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     AccediaAngularComponentsComponent,
@@ -84,6 +88,8 @@ import { ChartComponent } from './components/chart/chart.component';
     RadioButtonComponent,
     RadioGroupComponent,
     ToggleButtonComponent,
+    PaginatorComponent,
+    BarChartComponent,
     SelectComponent,
     ChartComponent
   ]
