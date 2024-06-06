@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as TabsStories from "./Tabs.stories.ts";
+import GithubIcon from "../assets/github-mark.svg";
+
+<Meta of={TabsStories} />
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Tabs
+
+The <strong>Tabs</strong> component provides a user-friendly way to implement tabbed navigation
+in web applications. It allows users to switch between different content sections
+by clicking on the corresponding tab labels.
+
+<Canvas of={TabsStories.Primary} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li>
+    The component consists of a series of tabs, where each tab has a label and
+    its associated content.
+  </li>
+  <li>
+    By default, the first tab is active, and its content is displayed when the
+    component is loaded.
+  </li>
+  <li>
+    Users can click on different tab labels to switch between the corresponding
+    tab content.
+  </li>
+  <li>
+    The component supports responsive behavior, adjusting the layout when the
+    window is resized.
+  </li>
+</ul>
+
+## Usage
+
+To use the <strong>Tabs</strong> component, you need to render it inside any template within your application via the `acc-tabs` selector
+and define the individual tabs using the <strong>Tab</strong> component (`acc-tab`) as children (see code example).
+Each <strong>Tab</strong> component requires a label that will be displayed as the tab's title and its associated content.
+Optionally, you can pass a `navSideContent` attribute to each `acc-tab` with a template containing additional content related to that tab.
+It can be customized with various elements such as additional text information, buttons, or any other desired content, catering to your specific requirements.
+You can customize the `Tabs` component to match your application's color theme by providing a slider color via the `sliderColor` property.
+
+## Additional notes
+
+<ul>
+  <li>
+    Avoid using the <strong>Tab</strong> component independently outside the
+    <strong>Tabs</strong> component context, as the latter handles most of the rendering
+    logic and manages the activation and display of individual tabs based on user
+    interactions.
+  </li>
+  <li>
+    While you have the ability to control the initially active tab using the
+    `isActive` property, it is advisable to refrain from specifying multiple
+    active tabs. Doing so may result in undesired behavior when rendering the
+    content.
+  </li>
+</ul>
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Tabs component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/tabs)<br />

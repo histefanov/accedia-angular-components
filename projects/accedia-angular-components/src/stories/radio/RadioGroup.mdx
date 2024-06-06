@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as RadioGroupStories from "./RadioGroup.stories.ts";
+import GithubIcon from "../assets/github-mark.svg";
+
+# Radio group and radio button
+
+The <strong>RadioGroup</strong> and <strong>RadioButton</strong> components work together to provide a robust solution for managing and displaying a group of radio buttons in your Angular application. The <strong>RadioGroup</strong> component acts as a container that ensures only one radio button can be selected at a time, while the <strong>RadioButton</strong> component represents the individual selectable options.
+
+<Meta of={RadioGroupStories} />
+
+<Canvas of={RadioGroupStories.Primary} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li><strong>Single Selection:</strong> Ensures only one radio button within the group can be selected at any given time.</li>
+  <li><strong>Customizable Layout:</strong> Supports different orientations (row or column) for arranging the radio buttons.</li>
+  <li><strong>Variant Styling:</strong> Offers different visual styles (variants) for the radio buttons.</li>
+  <li><strong>Custom Labeling:</strong> Allows the addition of a label with customizable positions (before or after the radio buttons).</li>
+  <li><strong>Asterisk Indicator:</strong> Optionally displays an asterisk (*) next to the label.</li>
+  <li><strong>Event Emission:</strong> Emits a value change event when the selected radio button changes, providing the updated value.</li>
+  <li><strong>Keyboard Accessibility:</strong> Supports keyboard navigation and selection for improved accessibility.</li>
+</ul>
+
+## Usage
+
+The <strong>RadioGroup</strong> component is integrated into your Angular application by adding the `<acc-radio-group>` element to your template. The **RadioButton** components are nested within the **RadioGroup** to define each selectable option.
+
+Configure the <strong>RadioGroup</strong>'s inputs to customize its behavior, such as setting the direction using `direction`, defining the label with `label`, and specifying the label position with `labelPosition`. The **RadioButton** components will automatically inherit these properties.
+
+## Implementation details
+
+The **RadioGroup** component ensures that only one radio button can be selected at any time. It manages the state of the radio buttons and provides a label for the group. It uses various inputs to customize its appearance and behavior, and emits a `valueChange` event when the selected radio button changes.
+
+The **RadioButton** component represents an individual radio button within the **RadioGroup** component. It is responsible for rendering the radio button, handling user interaction, and updating its state based on the parent **RadioGroup**.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[RadioGroup component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/radio-group)
+<br/>[RadioButton component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/radio-button)

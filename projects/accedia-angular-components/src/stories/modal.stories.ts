@@ -9,7 +9,7 @@ import { AdditionalInfoComponent } from '../lib/components/additional-info/addit
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<ModalComponent> = {
-    title: 'Example/Modal',
+    title: 'Components/Modal',
     component: ModalComponent,
     tags: ['autodocs'],
     decorators: [

@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as ToggleButtonStories from "./ToggleButton.stories.ts";
+import GithubIcon from "../assets/github-mark.svg";
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
+
+# Toggle button
+
+The <strong>Toggle button</strong> is a custom Angular component designed to provide a 
+toggle button with various customizable features. It allows users to switch between 
+two states - `on` and `off`, and supports animations for a smooth user experience. 
+The component is also compatible with Angular forms, enabling easy integration with form controls.
+
+<Meta of={ToggleButtonStories} />
+
+<Canvas of={ToggleButtonStories.Primary} />
+
+<Controls />
+
+## Form integration
+
+<strong>Toggle button</strong> can be integrated with Angular forms using `NG_VALUE_ACCESSOR` and 
+`NgControl`. If `withForm` is set to true, the component will automatically interact with 
+the parent form control.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Toggle button component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/toggle-button)

@@ -1,0 +1,37 @@
+import { Meta, Canvas, Controls } from "@storybook/blocks";
+import * as InputStories from "./Input.stories.ts";
+import GithubIcon from "../assets/github-mark.svg";
+
+# Input
+
+The **Input** component provides a versatile input field for forms in your Angular application. It supports various input types and offers customization options for labels, placeholders, and validation.
+
+<Meta of={InputStories} />
+
+<Canvas of={InputStories.Primary} />
+
+<Controls />
+
+## Functionality
+
+<ul>
+  <li><strong>Input Types:</strong> Supports text, number, and password input types.</li>
+  <li><strong>Labeling:</strong> Allows the addition of a label with an optional asterisk for required fields.</li>
+  <li><strong>Placeholders:</strong> Provides a placeholder text for the input field.</li>
+  <li><strong>Max Length:</strong> Limits the maximum number of characters that can be entered.</li>
+  <li><strong>Number Step:</strong> Configures the step increment for number inputs.</li>
+  <li><strong>Form Integration:</strong> Integrates with Angular's reactive forms, supporting form control state and validation.</li>
+  <li><strong>Event Handling:</strong> Handles change and touch events to update the form control state.</li>
+</ul>
+
+## Usage
+
+The **Input** component is integrated into your Angular application by adding the `<acc-input>` element to your template. Configure its inputs to customize its behavior, such as setting the input type with `type`, defining the label with `label`, and specifying the placeholder text with `placeholder`.
+
+## Implementation details
+
+The **Input** component class integrates with Angular's form control mechanisms, allowing it to participate in form validation and state management. It uses various inputs to customize its appearance and behavior and provides methods to handle user interaction.
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Input component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/input)
