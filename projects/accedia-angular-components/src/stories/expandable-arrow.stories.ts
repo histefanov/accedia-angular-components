@@ -4,7 +4,7 @@ import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-br
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<ExpandableArrowComponent> = {
-    title: 'Example/ExpandableArrowComponent',
+    title: 'Components/ExpandableArrowComponent',
     component: ExpandableArrowComponent,
     tags: ['autodocs'],
     // decorators: [
