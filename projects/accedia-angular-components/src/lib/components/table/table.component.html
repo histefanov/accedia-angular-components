@@ -1,13 +1,30 @@
-<table class="table">
-  <thead 
-    class="table-head"
-    [ngStyle]="getInputStyles()"
-  >
-    <th *ngFor="let header of tableHeaders">
-      {{ header }}
-    </th>
+<table id="tbl_default" class="table" [ngClass]="[variant]" [class.mobile-sticky-last-column]="mobileStickyLastColumn">
+  <thead id="thd_default" class="table-head" [ngClass]="[variant]">
+    <ng-container *ngFor="let header of tableHeadersPresentation; let i = index">
+      <th id="thi_default">
+        <div class="img-container" (click)="sort(i, header)" [ngClass]="header.sortable ? 'sort' : ''">
+          <div class="header">{{ header.title }}</div>
+          <div
+            *ngIf="iconSrc && !!tableHeaders[i].dataKey && header.sortable"
+            [ngStyle]="{ '-webkit-mask-image': 'url(' + iconSrc + ')' }"
+            class="icon"
+            [ngClass]="i === activeSortIndex ? 'active' : ''"
+          ></div>
+        </div>
+        <div class="input-container">
+          <input
+            (input)="applyFilters()"
+            *ngIf="header.hasFilter"
+            type="text"
+            class="field-container-input"
+            [(ngModel)]="header.keyword"
+            placeholder="Search {{ header.title }}"
+          />
+        </div>
+      </th>
+    </ng-container>
   </thead>
-  <tbody class="table-body">
+  <tbody id="tbd_default" class="table-body">
     <ng-content></ng-content>
   </tbody>
 </table>

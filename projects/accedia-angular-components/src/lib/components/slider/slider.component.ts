@@ -11,7 +11,7 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
   @Input() label: string = 'Amount';
   @Input() showValue: boolean = true;
   @Input() valueOnThumb: boolean = false;
-  
+
   @Input()
   get thumbSize(): number {
     return this._thumbSize;
@@ -20,13 +20,13 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
     this._thumbSize = value;
     this.thumbRadius = this._thumbSize / 2;
   }
-  
-  @Input() 
+
+  @Input()
   get sliderValue() {
     return this._sliderValue;
   }
   set sliderValue(value: number) {
-    this._sliderValue = Math.min(value || 0, 100);
+    this._sliderValue = Math.min(Math.max(value ?? 0, 0), 100);
     if (this.slider && this.thumb) {
       this.setThumbValues();
     }
@@ -39,13 +39,13 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
 
   public isDragging = false;
   public thumbRadius: number = this.thumbSize / 2;
-  
+
   private _thumbSize: number = 32;
   private _sliderValue: number;
   private _subs = new Subscription();
 
   ngAfterViewInit() {
-    const pointerMove$ = 
+    const pointerMove$ =
       fromEvent<PointerEvent>(window, 'pointermove')
         .pipe(
           map(e => e.clientX),
@@ -92,7 +92,7 @@ export class SliderComponent implements AfterViewInit, OnDestroy {
   private calculateSliderProps(clientX: number) {
     const rect = this.slider.nativeElement.getBoundingClientRect();
     const offsetX = clientX - rect.left;
-    
+
     if (offsetX >= 0) {
       const percentage = (offsetX / rect.width) * 100;
       const clampedPercentage = Math.max(0, Math.min(100, percentage));

@@ -4,7 +4,8 @@ $padding-first-col: 1rem;
 
 :host {
   height: 54px;
-  border-bottom: 1px solid var(--neutral-color-grey-light);
+  border-radius: 10px;
+  border-bottom: 1px solid var(--primary-color-red-light);
 
   &:last-of-type {
     border: none;
@@ -15,7 +16,6 @@ $padding-first-col: 1rem;
   }
 
   &::ng-deep td {
-    font-family: var(--standard-font-family-open-sans);
     font-size: 14px;
     padding: 0.125rem $padding-cell;
     white-space: nowrap;
