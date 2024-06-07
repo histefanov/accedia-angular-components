@@ -1,27 +1,26 @@
-# AccediaAngularComponents
+# Introduction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+Welcome to the **Accedia's Angular Components Library** documentation! This library provides a collection of reusable, 
+customizable, and functional components to streamline the development of your Angular applications. 
+Whether you're building forms, navigation, or interactive elements, our components are designed to enhance 
+your development experience and improve your application's usability. This library is intended not only for direct use 
+in your projects but also as a resource for beginner and intermediate developers who want to learn how to create their own custom components.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+You can load the storybook project by cloning the repository and running `npm run storybook` right after you've installed all of the required npm packages. 
+Dive into our documentation to explore the features, functionality, and usage of each component. Each section includes descriptions, 
+implementation specifics, and practical examples to help you seamlessly integrate these components into your projects.
 
-## Code scaffolding
+## Highlights
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Reusable Components**: Easily integrate and reuse components across different parts of your application.
+- **Customization**: Extensive customization options to tailor each component's appearance and behavior.
+- **Accessibility**: Designed with accessibility in mind to ensure inclusivity for all users.
+- **Responsive Design**: Components that adapt seamlessly to different screen sizes and orientations.
+- **Event Handling**: Efficient event management for maintaining clean and manageable application logic.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+We invite you to explore the source code of our library. Whether you're looking to understand the inner workings of 
+the components or considering contributing, feel free to run through what we've done thus far. Contributions are welcome and appreciated!
