@@ -1,10 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-export interface PageChangeEvent {
-  pageIndex: number,
-  pageSize: number,
-  itemsLength: number
-};
+import { PageChangeEvent } from '../../common/interfaces';
 
 const NO_ITEMS_LABEL: string = '0 of 0';
 const MIN_EFFECTIVE_PAGE_BUTTONS_COUNT = 3;

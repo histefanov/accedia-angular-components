@@ -1,12 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { barChartComponentIn } from '../../common/animation.constants';
 import { roundToTwoDecimalPlaces } from '../../common/number.util';
-
-export interface ComponentDetails {
-  value: number,
-  color?: string,
-  description?: string
-}
+import { ComponentDetails } from '../../common/interfaces';
 
 const COMPONENT_MIN_WIDTH = 1;
 const DEFAULT_GAP = 5;

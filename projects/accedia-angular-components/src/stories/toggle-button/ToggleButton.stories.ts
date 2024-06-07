@@ -104,7 +104,7 @@ export const Primary: Story = {
   args: {
     disabled: false,
     insideForm: false,
-    label: 'Toggle button label',
+    label: 'Toggle me',
     labelPosition: 'above',
     onStateColor: '#CC1F17',
     state: 'off',
