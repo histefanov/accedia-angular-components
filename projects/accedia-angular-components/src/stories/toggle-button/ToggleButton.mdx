@@ -23,6 +23,26 @@ The component is also compatible with Angular forms, enabling easy integration w
 
 <Controls />
 
+## Functionality
+
+- **Customizable Appearance**: Options to set the label, label position, and on-state color.
+- **Form Integration**: Can be used inside Angular forms, syncing its state with form control.
+- **Event Emission**: Emits an event when the state changes, enabling responsive behaviors.
+- **Accessibility**: Supports disabling the toggle to prevent user interaction when needed.
+
+## Usage
+
+The **ToggleButton** component is integrated into your Angular application by adding the `<acc-toggle-button>` element to your template. Configure its inputs to customize its behavior:
+
+- **label**: The text label displayed with the toggle button.
+- **labelPosition**: Position of the label relative to the toggle button. Default is `POSITION_ABOVE`.
+- **onStateColor**: Color of the toggle button when it is in the on state. Default is `PRIMARY_COLOR_RED`.
+- **state**: Initial state of the toggle button. Default is `STATE_OFF`.
+- **disabled**: Boolean to disable the toggle button.
+- **insideForm**: Boolean to indicate if the toggle is inside a form.
+
+Implement the `(toggle)` event handler to capture state change events and update the application logic accordingly.
+
 ## Form integration
 
 <strong>Toggle button</strong> can be integrated with Angular forms using `NG_VALUE_ACCESSOR` and 
