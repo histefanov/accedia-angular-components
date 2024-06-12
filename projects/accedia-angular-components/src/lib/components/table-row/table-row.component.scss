@@ -5,7 +5,6 @@ $padding-first-col: 1rem;
 :host {
   height: 54px;
   border-radius: 10px;
-  border-bottom: 1px solid var(--primary-color-red-light);
 
   &:last-of-type {
     border: none;

@@ -16,10 +16,9 @@ const meta: Meta<ProgressBarComponent> = {
                 ...props,
             },
             template: `
-        <afc-progress-bar [progress]="progress" [minimumProgressAnimation]="minimumProgressAnimation" [animationDelayMs]="animationDelayMs" [withProgressAnimation]="withProgressAnimation">
-          ${label ? label : ''}
-        </afc-progress-bar>
-        progress: {{progress}}%
+        <acc-progress-bar [progress]="progress" [minimumProgressAnimation]="minimumProgressAnimation" [animationDelayMs]="animationDelayMs" [withProgressAnimation]="withProgressAnimation">
+          Progress
+        </acc-progress-bar>
       `
         }
     },
@@ -49,10 +48,10 @@ type Story = StoryObj<StoryType>;
 export const Primary: Story = {
     args: {
         progress: 50,
-        label: 'Label',
+        label: 'Progress bar',
         withProgressAnimation: true,
-        animationDelayMs: 50,
-        minimumProgressAnimation: 30
+        animationDelayMs: 25,
+        minimumProgressAnimation: 0
     },
 
 };

@@ -2,23 +2,24 @@ $height: 2rem;
 
 :host {
   display: block;
-  max-width: 200px;
+  max-width: 325px;
 }
 
 .progress-bar-base {
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   height: $height;
 }
 
 .progress-bar-container {
   @extend .progress-bar-base;
-  background-color: var(--primary-color-red);
+  background-color: var(--primary-color-red-light);
+  // background-color: var(--primary-color-red);
 }
 
 .progress-bar {
   @extend .progress-bar-base;
   color: var(--main-white-color);
-  background-color: var(--neutral-color-grey);
+  background-color: var(--secondary-color-teal-light);
 }
 
 .text-container {
@@ -31,5 +32,5 @@ $height: 2rem;
   justify-content: space-between;
   font-size: 14px;
   min-height: $height;
-  color: white;
+  color: #4a4a4a;
 }
