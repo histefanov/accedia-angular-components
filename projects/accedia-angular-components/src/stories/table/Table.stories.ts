@@ -2,14 +2,17 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { TableComponent } from '../../lib/components/table/table.component';
 import { TableRowComponent } from '../../lib/components/table-row/table-row.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TooltipComponent } from '../../lib/components/tooltip/tooltip.component';
+import { ButtonComponent } from '../../lib/components/button/button.component';
 
 const meta: Meta<TableComponent<any>> = {
   title: 'Components/Table',
   component: TableComponent,
   decorators: [
     moduleMetadata({
-      imports: [FormsModule],
-      declarations: [TableComponent, TableRowComponent]
+      imports: [FormsModule, BrowserAnimationsModule],
+      declarations: [TableComponent, TableRowComponent, TooltipComponent, ButtonComponent,]
     })
   ],
   render: (args: TableComponent<any>) => {
@@ -21,23 +24,27 @@ const meta: Meta<TableComponent<any>> = {
       props,
       template: `
       <div>
-      <acc-table
-        [ngStyle]="{'margin-left': '10px'}"
-        (filteredData)="data = $event"
-        [tableHeaders]="tableHeaders"
-        [mobileStickyLastColumn]="true"
-        [data]="data"
-      >
-        <tr acc-table-row *ngFor="let person of data">
-          <td>{{ person.firstName }}</td>
-          <td>{{ person.lastName }}</td>
-          <td>{{ person.position }}</td>
-          <td>{{ person.dateOfBirth }}</td>
-          <td>{{ person.maritalStatus }}</td>
-          <ng-template #stickyColumn>
-          </ng-template>
-        </tr>
-      </acc-table>
+        <acc-table
+          [ngStyle]="{'margin-left': '10px'}"
+          (filteredData)="data = $event"
+          [tableHeaders]="tableHeaders"
+          [mobileStickyLastColumn]="true"
+          [data]="data"
+        >
+          <tr acc-table-row *ngFor="let person of data">
+            <td>{{ person.firstName }}</td>
+            <td>{{ person.lastName }}</td>
+            <td>{{ person.position }}</td>
+            <td>{{ person.dateOfBirth }}</td>
+            <td>{{ person.maritalStatus }}</td>
+            <td>
+              <acc-tooltip [text]="" [tooltipWidth]="'50px'">
+                      <span textContent>Projected text in slot</span>
+                      <img class="chevron" src="assets/images/info_thin.svg" width="18"/>
+              </acc-tooltip>
+            </td>
+          </tr>
+        </acc-table>
       </div>
 
       `
@@ -59,7 +66,8 @@ export const Primary: Story = {
       { title: 'lastName', hasFilter: true, dataKey: 'lastName', sortable: true },
       { title: 'position', hasFilter: true, dataKey: 'position', sortable: true },
       { title: 'dateOfBirth', dataKey: 'dateOfBirth', sortable: true },
-      { title: 'dateOfBirth', dataKey: 'maritalStatus', sortable: true }
+      { title: 'dateOfBirth', dataKey: 'maritalStatus', sortable: true },
+      { title: 'Additional Info', dataKey: '', sortable: false },
     ],
     data: [
       {

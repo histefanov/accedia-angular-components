@@ -8,6 +8,6 @@
 >
   <div class="tooltip__text" [ngStyle]="{
     width: tooltipWidth + 'px',
-  }">{{ text }}</div>
+  }">{{ text }} <ng-content select="[textContent]"></ng-content></div>
 </div>
 <ng-content></ng-content>
