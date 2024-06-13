@@ -1,7 +1,14 @@
-{/* ProgressBarDocs.mdx */}
-
 import { Meta, Primary, Controls, Story, Canvas } from '@storybook/blocks';
 import * as ProgressBar from './Progress-bar.stories';
+import GithubIcon from "../assets/github-mark.svg";
+
+<style>
+  {`
+    .github-icon {
+      margin-left: 0.25rem;
+    }
+  `}
+</style>
 
 <Meta of={ProgressBar} />
 
@@ -9,30 +16,33 @@ import * as ProgressBar from './Progress-bar.stories';
 
 A simple progress bar that has a progress animation that can be tweaked depending on the use case.
 
-<Primary />
+<Canvas of={ProgressBar.Primary} />
 
 <Controls />
 
-{/* ## Stories
+## Functionality
 
-### Primary */}
+<ul>
+  <li>Customizable minimum progress animation.</li>
+  <li>Adjustable animation delay.</li>
+  <li>Option to enable/disable progress animation.</li>
+</ul>
 
-{/* <Story of={ProgressBar.Primary} /> */}
+## Usage
 
-{/* <Canvas
-  additionalActions={[
-    {
-      title: 'Open in GitHub',
-      onClick: () => {
-        window.open(
-          'https://github.com/storybookjs/storybook/blob/next/code/ui/blocks/src/examples/Button.stories.tsx',
-          '_blank'
-        );
-      },
-    },
-  ]}
-  of={ProgressBar.Primary}
-/> */}
+To use the ProgressBar component, simply include it in your Angular application and pass the necessary inputs.
 
+Here is an example of how you can use the ProgressBar component in your application:
 
-{/* ... */}
+```html
+<acc-progress-bar 
+  [minimumProgressAnimation]="50"
+  [animationDelayMs]="30"
+  [withProgressAnimation]="true"
+  [progress]="currentProgress">
+</acc-progress-bar>
+```
+
+## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
+
+[Progress bar Component](https://github.com/histefanov/accedia-angular-components/tree/main/projects/accedia-angular-components/src/lib/components/progress-bar)<br />

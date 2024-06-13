@@ -34,16 +34,6 @@ const meta: Meta<SliderComponent> = {
     }
   },
   argTypes: {
-    disabled: {
-      name: 'disabled',
-      description: 'Slider disabled state',
-      control: 'boolean',
-      table: {
-        defaultValue: {
-          summary: false
-        }
-      }
-    },
     thumbSize: {
       name: 'thumbSize?',
       description: 'Adjusts the size of the thumb',
@@ -52,28 +42,6 @@ const meta: Meta<SliderComponent> = {
       table: {
         defaultValue: {
           summary: 32
-        }
-      }
-    },
-    showValue: {
-      name: 'showValue',
-      description: 'Show the current value on the right',
-      control: 'inline-radio',
-      options: [true, false],
-      table: {
-        defaultValue: {
-          summary: true
-        }
-      }
-    },
-    valueOnThumb: {
-      name: 'valueOnThumb',
-      description: 'Show the current value on the slider thumb',
-      control: 'inline-radio',
-      options: [true, false],
-      table: {
-        defaultValue: {
-          summary: false
         }
       }
     },
@@ -103,11 +71,8 @@ type Story = StoryObj<SliderComponent>;
 
 export const Primary: Story = {
   args: {
-    disabled: false,
     thumbSize: 24,
     label: 'Slider label',
-    showValue: true,
-    valueOnThumb: false,
     sliderValue: 50
   }
 };

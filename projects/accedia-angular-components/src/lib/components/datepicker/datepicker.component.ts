@@ -50,7 +50,7 @@ export class DatepickerComponent implements ControlValueAccessor {
   public control: FormControl;
   public subs = new Subscription();
   public isCalendarOpen = false;
-  private _value: Date;
+  private _value: Date | null;
   public windowWidth: number;
   public paddingSizes: 32;
   public offsetCalendarOpenPosition: string;
@@ -62,15 +62,19 @@ export class DatepickerComponent implements ControlValueAccessor {
     return this._value || new Date();
   }
 
-  @Input() public set value(value: Date) {
-    const currentDate = new Date();
-    const currentHours = currentDate.getHours();
-    const currentMins = currentDate.getMinutes();
-    value.setHours(currentHours);
-    value.setMinutes(currentMins);
-    this._value = value;
-    this.propagateChange(value);
-    this.isCalendarOpen = false;
+  @Input() public set value(value: Date | null) {
+    if (value) {
+      const currentDate = new Date();
+      const currentHours = currentDate.getHours();
+      const currentMins = currentDate.getMinutes();
+      value.setHours(currentHours);
+      value.setMinutes(currentMins);
+      this._value = value;
+      this.propagateChange(value);
+      this.isCalendarOpen = false;
+    } else {
+      this._value = null;
+    }
   }
 
   constructor(private cdr: ChangeDetectorRef, private elementRef: ElementRef) { }
@@ -96,8 +100,8 @@ export class DatepickerComponent implements ControlValueAccessor {
     this.windowWidth = window.innerWidth;
   }
 
-  private propagateChange: Function = (_: string) => { };
-  private propagateTouch: Function = (_: string) => { };
+  private propagateChange: Function = (_: any) => { };
+  private propagateTouch: Function = (_: any) => { };
 
   public writeValue(obj: any): void {
     this.value = obj;

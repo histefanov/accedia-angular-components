@@ -21,15 +21,39 @@ how your closed calendar view looks. The datepicker also uses ControlValueAccess
 
 <Controls />
 
-{/* ## Functionality: */}
+## Functionality
 
+<ul>
+  <li>Customizable direction for the calendar dropdown.</li>
+  <li>Supports minimum and maximum date constraints.</li>
+  <li>Responsive design that adjusts layout based on window width.</li>
+  <li>Integrates with Angular forms as a <code>ControlValueAccessor</code>.</li>
+</ul>
 
 ## Usage
 
-"Show code" has an example how to use it in Angular Forms.
+To use the <strong>Datepicker</strong> component, render it inside any template within your application via the `acc-datepicker` selector. Configure its inputs to customize its behavior, such as setting the minimum and maximum dates using `minDate` and `maxDate`, specifying the label with `label`, enabling/disabling with `isDisabled`, etc.
 
-{/* ## Additional notes */}
+Here is an example of how you can use the <strong>Datepicker</strong> component in your application:
 
+```html
+<acc-datepicker 
+  [label]="'Select Date:'"
+  [minDate]="minSelectableDate"
+  [maxDate]="maxSelectableDate"
+  [isDisabled]="false"
+  [swapOpenDirection]="true"
+  [withAsterisk]="true"
+  (ngModel)="selectedDate">
+</acc-datepicker>
+
+Angular Forms:
+<form [formGroup]="dateForm">
+  <acc-datepicker formControlName="startDate"></acc-datepicker>
+  <acc-datepicker formControlName="endDate"></acc-datepicker>
+</form>
+
+```
 
 ## Source code <img className="github-icon" src={GithubIcon} alt="github" width="20"/>
 

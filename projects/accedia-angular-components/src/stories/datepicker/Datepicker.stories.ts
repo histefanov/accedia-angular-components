@@ -4,6 +4,7 @@ import { DatepickerComponent } from '../../lib/components/datepicker/datepicker.
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AdditionalInfoComponent } from '../../lib/components/additional-info/additional-info.component';
+import { FormsModule } from '@angular/forms';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<DatepickerComponent> = {
@@ -13,21 +14,18 @@ const meta: Meta<DatepickerComponent> = {
     render: (args) => {
         const { ...props } = args;
         return {
+
             props: {
                 ...props,
+                selectedDate: new Date()
             },
             template: `
-            <div [ngStyle]="{ height: '405px', 'margin-left': '110px' }">
-                <acc-datepicker [swapOpenDirection]="swapOpenDirection">
+            <div [ngStyle]="{ height: '405px', 'margin-left': '5px' }">
+                <acc-datepicker [swapOpenDirection]="swapOpenDirection" [calendarWidth]="calendarWidth" [(ngModel)]="selectedDate">
                 </acc-datepicker>
-            </div>
 
-            <ADDITIONAL-INFO>
-            <form [formGroup]="dateForm">
-                <acc-datepicker formControlName="startDate"></acc-datepicker>
-                <acc-datepicker formControlName="endDate"></acc-datepicker>
-            </form>
-        </ADDITIONAL-INFO>
+                <p>Selected date: {{ selectedDate | date }}</p>
+            </div>
       `
         }
     },
@@ -37,7 +35,7 @@ const meta: Meta<DatepickerComponent> = {
         }),
         moduleMetadata({
             declarations: [DatepickerComponent, AdditionalInfoComponent],
-            imports: [MatDatepickerModule, MatNativeDateModule],
+            imports: [MatDatepickerModule, MatNativeDateModule, FormsModule],
         }),
     ],
     argTypes: {
@@ -46,6 +44,9 @@ const meta: Meta<DatepickerComponent> = {
         },
         isCalendarOpen: {
             description: 'toggles the calendar'
+        },
+        calendarWidth: {
+            description: 'Changes the size of the calendar'
         },
     },
 };
@@ -57,7 +58,8 @@ type Story = StoryObj<DatepickerComponent>;
 export const Primary: Story = {
     args: {
         swapOpenDirection: false,
-        isCalendarOpen: false
+        isCalendarOpen: false,
+        calendarWidth: 280,
     },
 };
 

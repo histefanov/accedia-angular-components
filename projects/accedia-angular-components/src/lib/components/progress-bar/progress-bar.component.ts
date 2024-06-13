@@ -2,48 +2,54 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@a
 import { Subscription, interval, take } from 'rxjs';
 
 @Component({
-  selector: 'afc-progress-bar',
+  selector: 'acc-progress-bar',
   templateUrl: './progress-bar.component.html',
   styleUrls: ['./progress-bar.component.scss'],
 })
 export class ProgressBarComponent {
   constructor(private cdr: ChangeDetectorRef) { }
+
   @Input() minimumProgressAnimation = 55;
-  public progressCounter = 0;
   @Input() animationDelayMs = 25;
-  public minimumProgress: number;
   @Input() withProgressAnimation = true;
-  public subscription = new Subscription();
-  _progress: number;
+
+  public progressCounter = 0;
+  public minimumProgress: number;
+
+  private subscription = new Subscription();
+  private _progress: number;
 
   @Input() set progress(value: number) {
     if (value > 100) {
       value = 100;
     }
-    this.progressCounter = 0;
     this._progress = value;
-    this.minimumProgress = this.progress < this.minimumProgressAnimation ? this.minimumProgressAnimation : this.progress;
-    interval(this.animationDelayMs)
-      .pipe(take(this.minimumProgress || 100))
-      .subscribe(() => {
-        if (!this.withProgressAnimation) {
-          this.progressCounter = this.progress;
-        } else {
-          if (this.progressCounter < this.minimumProgress) {
-
-            this.progressCounter++;
-          }
-        }
-        this.cdr.detectChanges();
-      });
+    this.updateProgress();
   }
 
   public get progress() {
     return this._progress;
   }
-  @Input() secondaryColor = 'grey';
 
-  public ngAfterViewInit(): void {
+  private updateProgress() {
+    if (this.withProgressAnimation) {
+      this.minimumProgress = Math.min(this.progress, this.minimumProgressAnimation);
+      this.progressCounter = this.minimumProgress; // Start from minimumProgress
+      this.subscription.unsubscribe();
+      this.subscription = interval(this.animationDelayMs)
+        .pipe(
+          take(this.progress - this.minimumProgress)
+        )
+        .subscribe(() => {
+          this.progressCounter++;
+          this.cdr.detectChanges();
+        });
+    } else {
+      this.progressCounter = this.progress;
+    }
+  }
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

@@ -7,6 +7,7 @@ $padding-card-variant: 22px;
 :host {
   display: block;
   overflow-y: auto;
+  border-radius: 10px;
 
   &::-webkit-scrollbar {
     width: 0.3rem;
@@ -15,7 +16,6 @@ $padding-card-variant: 22px;
 
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
-    background-color: var(--neutral-color-grey-light);
     border-radius: 20px;
   }
 
@@ -23,11 +23,10 @@ $padding-card-variant: 22px;
   &::-webkit-scrollbar-thumb {
     outline: none;
     border-radius: 20px;
-    background-color: var(--neutral-color-grey);
   }
 
   @include media(mobile-screen) {
-    background-color: var(--main-white-color);
+    background-color: white;
     padding-bottom: 0.5rem;
   }
 }
@@ -35,10 +34,10 @@ $padding-card-variant: 22px;
 .table {
   width: 100%;
   border-collapse: collapse;
-  background-color: var(--neutral-color-grey-lightest);
+  background-color: rgb(248, 245, 245);
 
   @include media(mobile-screen) {
-    background-color: var(--main-white-color);
+    background-color: white;
   }
 
   &.card {
@@ -48,12 +47,12 @@ $padding-card-variant: 22px;
   .table-head {
     text-align: left;
     height: 35px;
-    color: var(--primary-color-white);
-    background-color: var(--secondary-color-teal);
+    color: white;
+    background-color: var(--primary-color-red-lighter);
     top: 0;
 
     th {
-      font-family: var(--standard-font-family-open-sans);
+      font-family: 'Hero New Bold';
       font-size: 12px;
       padding-inline: $padding-cell;
       white-space: nowrap;
@@ -71,6 +70,24 @@ $padding-card-variant: 22px;
       @extend .thead-variant-card;
     }
   }
+
+  &.mobile-sticky-last-column {
+    @include media(mobile-screen) {
+      .table-head th:first-of-type {
+        position: sticky;
+        left: 0;
+        background-color: var(--primary-color-red-lighter);
+        padding-inline: 0;
+      }
+
+      .table-body::ng-deep td:first-of-type {
+        position: sticky;
+        left: 0;
+        background-color: white;
+        padding-inline: 1rem;
+      }
+    }
+  }
 }
 
 .table-variant-card {
@@ -78,26 +95,87 @@ $padding-card-variant: 22px;
   border-collapse: inherit;
 
   tr td:first-child {
-    border-left: 1px solid var(--secondary-color-teal);
+    border-left: 1px solid var(--primary-color-red-lighter);
     opacity: 1;
   }
 
   tr td:last-child {
-    border-right: 1px solid var(--secondary-color-teal);
+    border-right: 1px solid var(--primary-color-red-lighter);
     opacity: 1;
   }
 }
 
 .thead-variant-card {
   height: auto;
-  background-color: var(--neutral-color-grey-light);
+  background-color: var(--neutral-color-grey);
 
   th {
     font-size: 14px;
+    color: var(--secondary-egg-shell-color);
     padding-inline: $padding-card-variant;
 
     @include media(tablet-screen) {
       padding-inline: 1rem;
     }
   }
+}
+
+.img-container {
+  margin-top: 0.25rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: transparent;
+  gap: 0.8rem;
+
+  &.sort {
+    cursor: pointer;
+  }
+
+  & .header {
+    color: #fff;
+  }
+
+  .icon {
+    $size: 16px;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+    width: $size;
+    height: $size;
+    aspect-ratio: 1;
+    background: #fff;
+    opacity: 0.8;
+
+    &.active {
+      background: var(--primary-color-red-light);
+      opacity: 1;
+    }
+  }
+}
+
+.field-container-input {
+  width: 100%;
+  margin-block: 0.25rem;
+  box-sizing: border-box;
+  outline: 1px solid transparent;
+  transition-property: outline-color, border-color, background-color;
+  font-size: 0.875rem;
+  max-width: 250px;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  border-radius: 8px;
+  transition-property: outline-color, border-color, background-color;
+  transition-duration: 200ms;
+
+  &:focus {
+    outline: 1px solid var(--primary-color-red-lighter);
+  }
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
